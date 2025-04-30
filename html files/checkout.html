@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Car Dealership</title>
+    <link rel="stylesheet" href="../css files/checkout.css">
+    <script defer src="../js files/checkout.js"></script>
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js files/form-handler.js"></script>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg" class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg" class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg" class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg" class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg" class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html"  class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart"> 
+                </a>
+                
+                
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                <li><a href="viewAll.html" >ALL Vehicles</a></li>
+                <li><a href="sell-car.html">Sell Your Car</a></li>
+                <li><a href="bookmark.html">Bookmark</a></li>
+                
+            </ul>
+        </div>
+        
+
+    </nav>
+
+    <div class="form-container">
+        <h2>Checkout</h2>
+        <br/>
+        <form id="checkout-form">
+            <!-- Display Total Price -->
+            <h3>Total Cost:</h3>
+            <p id="total-cost"></p>
+            <br>
+
+            <h3>Car Details:</h3>
+            <br>
+            <p><strong>Model:</strong> <span id="car-name"></span></p>
+            <p><strong>Price:</strong> <span id="car-price"></span></p>
+            <p><strong>Year:</strong> <span id="car-year"></span></p>
+            <p><strong>Mileage:</strong> <span id="car-mileage"></span></p>
+            <br>
+            <!-- Personal Information -->
+            <h3>Billing Details:</h3>
+            <br>
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" placeholder="Enter your full name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="address">Billing Address</label>
+            <input type="text" id="address" placeholder="Enter your billing address" required>
+
+            <label for="idFront">Enter identifaction id (front side)</label>
+            <input type="file" id="idFront"  required>
+
+            <label for="idBack">Enter identifaction id (back side)</label>
+            <input type="file" id="idBack"  required>
+            <!-- Payment Information -->
+            <h3>Payment Details:</h3>
+            <br>
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" placeholder="Enter card number" required>
+
+            <label for="expiry-date">Expiry Date</label>
+            <input type="month" id="expiry-date" required>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="Enter CVV" required>
+
+            <button type="submit">Complete Purchase</button>
+        </form>
+        <div id="checkoutResponse"></div>
+    </div>
+
+</body>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+                <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+                <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+                <li><a href="../html files/bookmark.html">Bookmark</a></li>
+                <li><a href="../html files/faq.html">FAQ</a></li>
+                <li><a href="../html files/contact-us.html">Contact Us</a></li>
+                <li><a href="../html files/about-us.html">About Us</a></li>
+                <li><a href="../html files/reviews.html">Reviews</a></li>
+                <li><a href="../html files/partners.html">Partnerships</a></li>
+                <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+                <li><a href="data-protection.html">Data protection</a></li>
+                <li><a href="terms.html">Terms and Conditions</a></li>
+
+            </ul>
+        </div>
+        
+        <!-- Brands Listing -->
+        <div class="footer-section brands-list">
+            <h4>Browse by Brand</h4>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: Devsquad@surgemotors.com</p>
+            <p>Phone:+961 70 777 676 </p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+    </div>
+</footer>
+</html>

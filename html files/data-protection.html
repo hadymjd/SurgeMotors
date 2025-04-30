@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Protection Policy - Car Dealership</title>
+    <link rel="stylesheet" href="../css files/data-protection.css">
+    <script defer src="../js files/data-protection.js"></script>
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg" class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg" class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg" class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg" class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg" class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html"  class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart"> 
+                </a>
+                
+                
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                <li><a href="viewAll.html" >ALL Vehicles</a></li>
+                <li><a href="sell-car.html">Sell Your Car</a></li>
+                <li><a href="bookmark.html">Bookmark</a></li>
+                
+            </ul>
+        </div>
+        
+
+    </nav>
+
+    <div class="data-container">
+        <h2>Data Protection Policy</h2>
+        <p>Last Updated: March 2025</p>
+
+        <div class="data-content" id="data-content">
+            <h3>1. Introduction</h3>
+            <p>Your privacy is important to us. This Data Protection Policy explains how we collect, use, and safeguard your personal information.</p>
+
+            <h3>2. Data We Collect</h3>
+            <p>We may collect the following personal information:</p>
+            <ul>
+                <li>Full Name, Email, Phone Number</li>
+                <li>Billing & Shipping Address</li>
+                <li>Payment Details (Encrypted)</li>
+                <li>Car Purchase & Service History</li>
+                <li>IP Address, Browser Type, and Device Information</li>
+            </ul>
+
+            <h3>3. How We Use Your Data</h3>
+            <p>We use your data to:</p>
+            <ul>
+                <li>Process vehicle purchases and services</li>
+                <li>Provide customer support</li>
+                <li>Send marketing offers (if consented)</li>
+                <li>Improve website functionality</li>
+                <li>Ensure security and fraud prevention</li>
+            </ul>
+
+            <h3>4. Data Security & Protection</h3>
+            <p>We implement strict security measures to protect your data:</p>
+            <ul>
+                <li>Encryption of payment and personal data</li>
+                <li>Two-Factor Authentication for login security</li>
+                <li>Secure servers and firewalls</li>
+                <li>Regular security audits and compliance checks</li>
+            </ul>
+
+            <h3>5. Your Rights</h3>
+            <p>Under data protection laws, you have the right to:</p>
+            <ul>
+                <li>Request access to your personal data</li>
+                <li>Request deletion or correction of data</li>
+                <li>Opt out of marketing communications</li>
+                <li>File a complaint if you believe your data is misused</li>
+            </ul>
+
+            <h3>6. Third-Party Sharing</h3>
+            <p>We do not sell your data. We may share information with:</p>
+            <ul>
+                <li>Payment processors for transactions</li>
+                <li>Government authorities if legally required</li>
+                <li>Partners providing financing or insurance services</li>
+            </ul>
+
+            <h3>7. Contact Us</h3>
+            <p>If you have any questions, contact us at <a href="mailto:support@cardealership.com">support@cardealership.com</a></p>
+        </div>
+
+    </div> 
+
+</body>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+                <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+                <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+                <li><a href="../html files/bookmark.html">Bookmark</a></li>
+                <li><a href="../html files/faq.html">FAQ</a></li>
+                <li><a href="../html files/contact-us.html">Contact Us</a></li>
+                <li><a href="../html files/about-us.html">About Us</a></li>
+                <li><a href="../html files/reviews.html">Reviews</a></li>
+                <li><a href="../html files/partners.html">Partnerships</a></li>
+                <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+                <li><a href="data-protection.html">Data protection</a></li>
+                <li><a href="terms.html">Terms and Conditions</a></li>
+
+            </ul>
+        </div>
+        
+        <!-- Brands Listing -->
+        <div class="footer-section brands-list">
+            <h4>Browse by Brand</h4>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: Devsquad@surgemotors.com</p>
+            <p>Phone:+961 70 777 676 </p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+    </div>
+</footer>
+</html>

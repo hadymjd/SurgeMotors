@@ -1,0 +1,1485 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Listings</title>
+    <link href="../css files/viewAll.css" rel="stylesheet" />
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script defer src="../js files/viewAll.js"></script>
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg" class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg" class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg" class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg" class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg" class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html"  class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart"> 
+                </a>
+                
+                
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                <li><a href="viewAll.html" >ALL Vehicles</a></li>
+                <li><a href="sell-car.html">Sell Your Car</a></li>
+                <li><a href="bookmark.html">Bookmark</a></li>
+                
+            </ul>
+        </div>
+        
+
+    </nav>
+
+    <div class="container">
+        <!-- Sidebar Filter Panel -->
+        <aside class="filter-panel">
+            <h1>Search</h1>
+            
+            <label for="brand">Brand</label>
+            <select id="make">
+                <option value="">All</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="bmw">BMW</option>
+                <option value="audi">Audi</option>
+                <option value="tesla">Tesla</option>
+                <option value="ford">Ford</option>
+                <option value="porsche">Porsche</option>
+            </select>
+
+            <label for="model">Model</label>
+            <select id="model">
+                <option value="">All</option>
+            </select>
+
+            <label for="year">Year</label>
+            <select id="year">
+                <option value="">All</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+            </select>
+
+            <label for="price">Price Range</label>
+            <input type="range" id="price" min="10000" max="300000" step="1000">
+            <span id="price-value">300,000 USD</span>
+
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const priceInput = document.getElementById("price");
+                const priceValue = document.getElementById("price-value");
+
+                // Function to update the price display
+                function updatePriceDisplay() {
+                    priceValue.textContent = `${parseInt(priceInput.value).toLocaleString()} USD`;
+                }
+
+                // Update on input change
+                priceInput.addEventListener("input", updatePriceDisplay);
+
+                // Initialize display with default price
+                updatePriceDisplay();
+            });
+            </script>
+
+
+            <label for="mileage">Mileage</label>
+            <input type="number" id="mileage" placeholder="Max Mileage (KM)">
+
+            <label for="fuel">Fuel Type</label>
+            <select id="fuel">
+                <option value="">All</option>
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+                <option value="electric">Electric</option>
+            </select>
+
+            <button class="filter-btn btn" onclick="applyFilters()">Apply Filters</button>
+        </aside>
+
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search cars by name, model, or price..." onkeyup="searchCars()">
+        </div>
+
+        <script>
+            function searchCars() {
+                const query = document.getElementById("searchBar").value.toLowerCase();
+                const cars = document.querySelectorAll(".car-card");
+
+                cars.forEach(car => {
+                    const carText = car.innerText.toLowerCase();
+                    car.style.display = carText.includes(query) ? "block" : "none";
+                });
+}
+
+        </script>
+        
+
+        <!-- Car Listings -->
+        <main class="car-listings">
+            <div class="car-card" 
+                data-brand="porsche"
+                data-model="911"
+                data-year="2025"
+                data-price="207000"
+                data-mileage="10000"
+                data-fuel="petrol"
+                transmission="8-speed PDK dual-clutch" 
+                fuel-type="Petrol" 
+                drivetrain="AWD" 
+                color="Gray" 
+                features="Adaptive Cruise Control, Sport Chrono Package, Bose Sound System, Heated Seats, Panoramic Sunroof, LED Matrix Headlights"
+                data-horsepower="640 HP" 
+                data-year="2025"
+                data-speed="205 mph"
+                data-details-image1="../images/por-911-2025-new.jpg" 
+                data-details-image2="../images/por-911-2025-new2.jpg" 
+                data-details-image3="../images/por-911-2025-new3.webp" 
+                data-details-image4="../images/por-911-2025-new4.webp"
+                description="The Porsche 911 Turbo S is the pinnacle of performance and luxury. With a 3.7L V6 Twin Turbo engine producing 640 HP, it accelerates from 0 to 60 mph in just 2.6 seconds. The car features advanced technology like Adaptive Cruise Control, a Sport Chrono Package, and a Bose Sound System. Its sleek design, combined with AWD and an 8-speed PDK dual-clutch transmission, ensures an unparalleled driving experience.">
+                <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html" >
+                    <img src="../images/por911-2025.jpg" alt="Porsche 911 Turbo S">
+                    <h3>Porsche 911</h3>
+                    <p>Turbo S - 2025</p>
+                    <p class="price">$207,000</p>
+                    <p><strong>Rental:</strong> 2,500 USD/month</p>
+                
+                </a>
+            </div>
+           
+
+            
+            <!-- Mercedes-Benz G 550 -->
+            <div class="car-card" 
+                data-brand="mercedes"
+                data-model="G-Class"
+                data-year="2025"
+                data-price="131750"
+                data-mileage="55000"
+                data-fuel="petrol"
+                transmission="Automatic" 
+                fuel-type="Petrol" 
+                drivetrain="AWD" 
+                color="Black" 
+                features="Luxury Interior, 4WD, High Ground Clearance, Off-road Package"
+                data-engine="4.0L V8" 
+                data-horsepower="416 HP" 
+                data-speed="130 mph"
+                data-details-image1="../images/g550-2025-new.avif"
+                data-details-image2="../images/g550-2025-new2.jpg"
+                data-details-image3="../images/g550-2025-new3.avif"
+                data-details-image4="../images/g550-2025-new4.jpg"
+                description="The Mercedes-Benz G 550 is a luxury SUV that combines rugged off-road capability with premium comfort. Powered by a 4.0L V8 engine producing 416 HP, it offers a smooth ride both on and off the road. Features include a luxury interior, 4WD, and an off-road package for adventurous driving.">
+                <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                    <img src="../images/g550-2025.jpg" alt="Mercedes-Benz G 550">
+                    <h3>Mercedes-Benz G-Class</h3>
+                    <p>G 550 - 2025</p>
+                    <p class="price">$131,750</p>
+                    <p><strong>Rental:</strong> 1,800 USD/month</p>
+                    
+                </a>
+            </div>
+
+            <!-- Tesla Model X Plaid -->
+            <div class="car-card" 
+            data-brand="tesla"
+            data-model="model-X"
+            data-year="2025"
+            data-price="119990"
+            data-mileage="39500"
+            data-fuel="electric"
+            transmission="Single-speed Automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="White" 
+            features="Autopilot, Falcon Wing Doors, 17-inch Touchscreen"
+            data-engine="Electric Tri-Motor" 
+            data-horsepower="1,020 HP" 
+            data-speed="163 mph"
+            data-details-image1="../images/tesla-new.jpg"
+            data-details-image2="../images/tesla-new2.jpg"
+            data-details-image3="../images/tesla-new3.jpg"
+            data-details-image4="../images/tesla-new4.jpg"
+            description="The Tesla Model X Plaid is an all-electric SUV with blistering performance. Its tri-motor setup delivers 1,020 HP, enabling a 0-60 mph time of just 2.5 seconds. Features include Autopilot, Falcon Wing doors, and a 17-inch touchscreen for a futuristic driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+            <img src="../images/tesla-modelx-2025.jpg" alt="Tesla Model X Plaid">
+            <h3>Tesla Model X</h3>
+            <p>Plaid - 2025</p>
+            <p class="price">$119,990</p>
+            <p><strong>Rental:</strong> 1,600 USD/month</p>
+            
+            </a>
+    </div>
+            <!-- Mercedes-Benz S 580 -->
+            <div class="car-card" 
+                data-brand="mercedes"
+                data-model="S-Class"
+                data-year="2025"
+                data-price="117700"
+                data-mileage="12000"
+                data-fuel="petrol"
+                transmission="Automatic" 
+                fuel-type="Petrol" 
+                drivetrain="AWD" 
+                color="Black" 
+                features="Luxury Interior, Night Vision, Rear Executive Seating"
+                data-engine="4.0L V8" 
+                data-horsepower="496 HP" 
+                data-speed="130 mph"
+                data-details-image1="../images/s-class-new.jpg"
+                data-details-image2="../images/s-class-new2.avif"
+                data-details-image3="../images/s-class-new3.jpg"
+                data-details-image4="../images/s-class-new4.jpg"
+                description="The Mercedes-Benz S 580 is the epitome of luxury and performance. With a 4.0L V8 engine producing 496 HP, it offers a smooth and powerful ride. Features include a luxury interior, night vision, and rear executive seating for ultimate comfort.">
+                <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                    <img src="../images/s580-2025.jpg" alt="Mercedes-Benz S 580">
+                    <h3>Mercedes-Benz S-Class</h3>
+                    <p>S 580 - 2025</p>
+                    <p class="price">$117,700</p>
+                    <p><strong>Rental:</strong> 1,600 USD/month</p>
+                    
+                </a>
+            </div>
+
+            <!-- BMW 8 Series M850i -->
+            <div class="car-card" 
+                data-brand="bmw"
+                data-model="8-series"
+                data-price="111900"
+                data-mileage="18000"
+                data-fuel="petrol"
+                transmission="Automatic" 
+                fuel-type="Petrol" 
+                drivetrain="AWD" 
+                color="Blue" 
+                features="M Sport Package, Adaptive Suspension, Panoramic Sunroof"
+                data-engine="4.4L V8" 
+                data-horsepower="523 HP" 
+                data-year="2024"
+                data-speed="155 mph"
+                data-details-image1="../images/8-series-new.jpg"  
+                data-details-image2="../images/8-series-new2.jpg"  
+                data-details-image3="../images/8-series-new3.jpg"  
+                data-details-image4="../images/8-series-new4.jpg"                  
+                description="The BMW 8 Series M850i combines luxury and performance with a 4.4L V8 engine producing 523 HP. Features include the M Sport package, adaptive suspension, and a panoramic sunroof for an exhilarating driving experience.">
+                <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                    <img src="../images/m850i-2024.jpg" alt="BMW 8 Series M850i">
+                    <h3>BMW 8 Series</h3>
+                    <p>M850i - 2024</p>
+                    <p class="price">$111,900</p>
+                    <p><strong>Rental:</strong> 1,500 USD/month</p>
+                    
+                </a>
+            </div>
+
+            <!-- Mercedes-Benz S 500 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="S-Class"
+            data-price="111100"
+            data-mileage="15000"
+            data-fuel="petrol"
+            transmission="Automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Silver" 
+            features="Luxury Interior, Advanced Driver Assistance, Ambient Lighting"
+            data-engine="3.0L Inline-6" 
+            data-horsepower="429 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/s-class-new.jpg"
+            data-details-image2="../images/s-class-newb.jpg"
+            data-details-image3="../images/s-class-newc.webp"
+            data-details-image4="../images/s-class-newd.avif"
+            description="The Mercedes-Benz S 500 is a luxury sedan with a 3.0L inline-6 engine producing 429 HP. It features a luxurious interior, advanced driver assistance systems, and ambient lighting for a premium driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/s500-2024.jpg" alt="Mercedes-Benz S-Class S 500">
+                <h3>Mercedes-Benz S-Class</h3>
+                <p>S 500 - 2024</p>
+                <p class="price">$111,100</p>
+                <p><strong>Rental:</strong> 1,200 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Porsche Taycan 4S -->
+            <div class="car-card" 
+            data-brand="porsche"
+            data-model="Taycan"
+            data-price="103800"
+            data-mileage="22000"
+            data-fuel="electric"
+            transmission="Automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="Red" 
+            features="Performance Battery Plus, Adaptive Air Suspension, Porsche Torque Vectoring"
+            data-engine="Dual Electric Motors" 
+            data-horsepower="563 HP" 
+            data-year="2025"
+            data-speed="155 mph"
+            data-details-image1="../images/por-taycan-new.jpg"
+            data-details-image2="../images/por-taycan-new2.jpg"
+            data-details-image3="../images/por-taycan-new3.avif"
+            data-details-image4="../images/por-taycan-new4.avif"
+            description="The Porsche Taycan 4S is an all-electric sports sedan with dual electric motors producing 563 HP. Features include the Performance Battery Plus, adaptive air suspension, and Porsche Torque Vectoring for exceptional handling.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/por-taycan-4s-2025.jpg" alt="Porsche Taycan 4S">
+                <h3>Porsche Taycan</h3>
+                <p>4S - 2025</p>
+                <p class="price">$103,800</p>
+                <p><strong>Rental:</strong> 1,400 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Porsche 911 Carrera -->
+            <div class="car-card" 
+            data-brand="porsche"
+            data-model="911"
+            data-price="101200"
+            data-mileage="12000"
+            data-fuel="petrol"
+            transmission="8-speed PDK dual-clutch" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="White" 
+            features="Sport Chrono Package, Bose Sound System, Heated Seats"
+            data-engine="3.0L Twin Turbo" 
+            data-horsepower="379 HP" 
+            data-year="2025"
+            data-speed="182 mph"
+            data-details-image1="../images/por-911-2025-new.jpg"
+            data-details-image2="../images/por-911-2025-newb.jpg"
+            data-details-image3="../images/por-911-2025-newc.jpeg"
+            data-details-image4="../images/por-911-2025-newd.jpg"
+            description="The Porsche 911 Carrera is a sports car icon with a 3.0L twin-turbo engine producing 379 HP. Features include the Sport Chrono package, Bose sound system, and heated seats for a thrilling driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/por-carrera-2025.jpg" alt="Porsche 911 Carrera">
+                <h3>Porsche 911</h3>
+                <p>Carrera - 2025</p>
+                <p class="price">$101,200</p>
+                <p><strong>Rental:</strong> 1,350 USD/month</p>
+                
+            </a>
+        </div>
+            <!-- Tesla Model X Long Range -->
+            <div class="car-card" 
+            data-brand="tesla"
+            data-model="model-X"
+            data-price="99990"
+            data-mileage="25000"
+            data-fuel="electric"
+            transmission="Single-speed Automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="Blue" 
+            features="Autopilot, Falcon Wing Doors, 17-inch Touchscreen"
+            data-engine="Dual Electric Motors" 
+            data-horsepower="670 HP" 
+            data-year="2025"
+            data-speed="155 mph" 
+            data-details-image1="../images/tesla-modelx-new.avif" 
+            data-details-image2="../images/tesla-modelx-new2.jpg" 
+            data-details-image3="../images/tesla-modelx-new3.jpg" 
+            data-details-image4="../images/tesla-modelx-new4.jpg" 
+            description="The Tesla Model X Long Range is an all-electric SUV with dual electric motors producing 670 HP. Features include Autopilot, Falcon Wing doors, and a 17-inch touchscreen for a futuristic driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/tesla-modelx-long-2025.jpg" alt="Tesla Model X Long Range">
+                <h3>Tesla Model X</h3>
+                <p>Long Range - 2025</p>
+                <p class="price">$99,990</p>
+                <p><strong>Rental:</strong> 1,300 USD/month</p>
+                
+            </a>
+        </div>
+            <!-- Porsche 911 Carrera (2023) -->
+            <div class="car-card" 
+            data-brand="porsche"
+            data-model="911"
+            data-price="98200"
+            data-mileage="18000"
+            data-fuel="petrol"
+            transmission="8-speed PDK dual-clutch" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Black" 
+            features="Sport Chrono Package, Bose Sound System, Heated Seats"
+            data-engine="3.0L Twin Turbo" 
+            data-horsepower="379 HP" 
+            data-year="2023"
+            data-speed="182 mph"
+            data-details-image1="../images/red-porsche-911.jpg"
+            data-details-image2="../images/red-porsche-9112.webp"
+            data-details-image3="../images/red-porsche-9113.webp"
+            data-details-image4="../images/red-porsche-9114.jpg"
+            description="The Porsche 911 Carrera (2023) is a sports car icon with a 3.0L twin-turbo engine producing 379 HP. Features include the Sport Chrono package, Bose sound system, and heated seats for a thrilling driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/por-carrera-2023.jpg" alt="Porsche 911 Carrera">
+                <h3>Porsche 911</h3>
+                <p>Carrera - 2023</p>
+                <p class="price">$98,200</p>
+                <p><strong>Rental:</strong> 1,350 USD/month</p>
+                
+            </a>
+        </div>
+            <!-- Tesla Model S Long Range -->
+            <div class="car-card" 
+            data-brand="tesla"
+            data-model="model-S"
+            data-price="94990"
+            data-mileage="20000"
+            data-fuel="electric"
+            transmission="Single-speed Automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="Red" 
+            features="Autopilot, 17-inch Touchscreen, Premium Audio System"
+            data-engine="Dual Electric Motors" 
+            data-horsepower="670 HP" 
+            data-year="2025"
+            data-speed="155 mph"
+            data-details-image1="../images/model-s-new.jpg"
+            data-details-image2="../images/model-s-new2.webp"
+            data-details-image3="../images/model-s-new3.jpg"
+            data-details-image4="../images/model-s-new4.jpg"
+            description="The Tesla Model S Long Range is an all-electric sedan with dual electric motors producing 670 HP. Features include Autopilot, a 17-inch touchscreen, and a premium audio system for a futuristic driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/tesla-models-2025.jpg" alt="Tesla Model S">
+                <h3>Tesla Model S</h3>
+                <p>Long Range - 2025</p>
+                <p class="price">$94,990</p>
+                <p><strong>Rental:</strong> 1,300 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Porsche Cayenne Base Model -->
+            <div class="car-card" 
+            data-brand="porsche"
+            data-model="Cayenne"
+            data-price="72200"
+            data-mileage="30000"
+            data-fuel="petrol"
+            transmission="Automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="White" 
+            features="Luxury Interior, Panoramic Sunroof, Adaptive Air Suspension"
+            data-engine="3.0L V6" 
+            data-horsepower="335 HP" 
+            data-year="2025"
+            data-speed="150 mph"
+            data-details-image1="../images/por-cayenne-new.jpg"
+            data-details-image2="../images/por-cayenne-new2.jpg"
+            data-details-image3="../images/por-cayenne-new3.jpg"
+            data-details-image4="../images/por-cayenne-new4.avif"
+            description="The Porsche Cayenne Base Model is a luxury SUV with a 3.0L V6 engine producing 335 HP. Features include a luxury interior, panoramic sunroof, and adaptive air suspension for a comfortable and dynamic ride.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/porsche-cayenne-base-2025.jpg" alt="Porsche Cayenne">
+                <h3>Porsche Cayenne</h3>
+                <p>Base Model - 2025</p>
+                <p class="price">$72,200</p>
+                <p><strong>Rental:</strong> 1,000 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Audi Q8 55 TFSI -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="Q8"
+            data-price="70800"
+            data-mileage="25000"
+            data-fuel="petrol"
+            transmission="Automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Black" 
+            features="Virtual Cockpit, Bang & Olufsen Sound System, Adaptive Air Suspension"
+            data-engine="3.0L V6" 
+            data-horsepower="335 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/audi-q8-new.jpg"
+            data-details-image2="../images/audi-q8-new2.jpg"
+            data-details-image3="../images/audi-q8-new3.jpg"
+            data-details-image4="../images/audi-q8-new4.jpeg"
+            description="The Audi Q8 55 TFSI is a luxury SUV with a 3.0L V6 engine producing 335 HP. Features include a virtual cockpit, Bang & Olufsen sound system, and adaptive air suspension for a premium driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-q8-tfsi-2025.jpg" alt="Audi Q8 55 TFSI">
+                <h3>Audi Q8</h3>
+                <p>55 TFSI - 2025</p>
+                <p class="price">$70,800</p>
+                <p><strong>Rental:</strong> 950 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Mercedes-Benz E 450 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="E-Class"
+            data-price="67000"
+            data-mileage="20000"
+            data-fuel="petrol"
+            transmission="Automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Gray" 
+            features="Luxury Interior, Advanced Driver Assistance, Ambient Lighting"
+            data-engine="3.0L Inline-6" 
+            data-horsepower="362 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/e-class-new.jpg"
+            data-details-image2="../images/e-class-new2.jpg"
+            data-details-image3="../images/e-class-new3.avif"
+            data-details-image4="../images/e-class-new4.webp"
+            description="The Mercedes-Benz E 450 is a luxury sedan with a 3.0L inline-6 engine producing 362 HP. Features include a luxury interior, advanced driver assistance systems, and ambient lighting for a premium driving experience.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/e450-2025.jpg" alt="Mercedes-Benz E 450">
+                <h3>Mercedes-Benz E-Class</h3>
+                <p>E 450 - 2025</p>
+                <p class="price">$67,000</p>
+                <p><strong>Rental:</strong> 920 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW 5 Series 540i - 2025 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="5-Series"
+            data-price="65900"
+            data-mileage="5000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Black" 
+            features="Heated Seats, Panoramic Sunroof, Harman Kardon Sound System, Adaptive Suspension, Wireless Charging, Lane Assist"
+            data-engine="3.0L I6 Turbo" 
+            data-horsepower="335 HP" 
+            data-year="2025"
+            data-speed="155 mph"
+            data-details-image1="../images/5-series-new.jpg"
+            data-details-image2="../images/5-series-new2.webp"
+            data-details-image3="../images/5-series-new3.jpg"
+            data-details-image4="../images/5-series-new4.jpg" 
+            description="The BMW 540i combines luxury and performance with a 3.0L I6 Turbo engine producing 335 HP. It features an 8-speed automatic transmission, rear-wheel drive, and advanced technology like Adaptive Suspension and Harman Kardon Sound System. Perfect for those who seek a balance of comfort and sportiness.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/bmw-540i-2025.jpg" alt="BMW 540i">
+                <h3>BMW 5 Series</h3>
+                <p>540i - 2025</p>
+                <p class="price">$65,900</p>
+                <p><strong>Rental:</strong> 900 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW X5 xDrive40i - 2025 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="X-Series"
+            data-price="61600"
+            data-mileage="7000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="White" 
+            features="Heated Seats, Panoramic Sunroof, Apple CarPlay, Adaptive Cruise Control, Surround View Camera, Wireless Charging"
+            data-engine="3.0L I6 Turbo" 
+            data-horsepower="375 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/x5-new.jpg"
+            data-details-image2="../images/x5-new2.jpg"
+            data-details-image3="../images/x5-new3.jpg"
+            data-details-image4="../images/x5-new4.png" 
+            description="The BMW X5 xDrive40i is a luxury SUV with a 3.0L I6 Turbo engine delivering 375 HP. It comes with all-wheel drive, an 8-speed automatic transmission, and features like a Panoramic Sunroof and Adaptive Cruise Control. Ideal for families and adventurers alike.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/x5-xdrive40i-2025.jpg" alt="BMW X5">
+                <h3>BMW X Series</h3>
+                <p>X5 xDrive40i - 2025</p>
+                <p class="price">$61,600</p>
+                <p><strong>Rental:</strong> 850 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Tesla Model Y Performance - 2025 -->
+            <div class="car-card" 
+            data-brand="tesla"
+            data-model="Model-Y"
+            data-price="60000"
+            data-mileage="3000"
+            data-fuel="electric"
+            transmission="Single-speed automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="Midnight Silver Metallic" 
+            features="Autopilot, Premium Audio, Heated Seats, Wireless Charging, Panoramic Glass Roof, Tesla App Integration"
+            data-engine="Dual Electric Motors" 
+            data-horsepower="456 HP" 
+            data-year="2025"
+            data-speed="155 mph"
+            data-details-image1="../images/tesla-new.jpg"
+            data-details-image2="../images/tesla-newb.jpg"
+            data-details-image3="../images/tesla-newc.avif"
+            data-details-image4="../images/tesla-newd.jpg" 
+            description="The Tesla Model Y Performance is an all-electric SUV with dual motors producing 456 HP. It features all-wheel drive, Autopilot, and a sleek design with a Panoramic Glass Roof. Perfect for eco-conscious drivers who want speed and technology.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/tesla-modely-2025.jpg" alt="Tesla Model Y Performance">
+                <h3>Tesla Model Y</h3>
+                <p>Performance - 2025</p>
+                <p class="price">$60,000</p>
+                <p><strong>Rental:</strong> 780 USD/month</p>
+                
+            </a>
+        </div>
+            <!-- Audi A6 55 TFSI - 2024 -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="A6"
+            data-price="59800"
+            data-mileage="8000"
+            data-fuel="petrol"
+            transmission="7-speed S tronic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Navarra Blue" 
+            features="Virtual Cockpit, Bang & Olufsen Sound System, Heated Seats, Adaptive Air Suspension, Matrix LED Headlights, Wireless Charging"
+            data-engine="3.0L V6 Turbo" 
+            data-horsepower="340 HP" 
+            data-year="2024"
+            data-speed="155 mph"
+            data-details-image1="../images/a3-a6-new.jpg"
+            data-details-image2="../images/a3-a6-new2.webp"
+            data-details-image3="../images/a3-a6-new3.jpg"
+            data-details-image4="../images/a3-a6-new4.webp" 
+            description="The Audi A6 55 TFSI is a luxury sedan with a 3.0L V6 Turbo engine producing 340 HP. It features Quattro all-wheel drive, a 7-speed S tronic transmission, and advanced tech like the Virtual Cockpit and Matrix LED Headlights. A perfect blend of elegance and performance.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-a6-2024.jpg" alt="Audi A6 55 TFSI">
+                <h3>Audi A6</h3>
+                <p>55 TFSI - 2024</p>
+                <p class="price">$59,800</p>
+                <p><strong>Rental:</strong> 800 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Ford Explorer ST - 2024 -->
+            <div class="car-card" 
+            data-brand="ford"
+            data-model="Explorer"
+            data-price="55000"
+            data-mileage="12000"
+            data-fuel="petrol"
+            transmission="10-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Agate Black" 
+            features="Heated Seats, Panoramic Sunroof, Bang & Olufsen Sound System, Adaptive Cruise Control, Wireless Charging, Ford Co-Pilot360"
+            data-engine="3.0L V6 Turbo" 
+            data-horsepower="400 HP" 
+            data-year="2024"
+            data-speed="143 mph"
+            data-details-image1="../images/explorer-new.jpg"
+            data-details-image2="../images/explorer-new2.jpg"
+            data-details-image3="../images/explorer-new3.jpg"
+            data-details-image4="../images/explorer-new4.jpeg" 
+            description="The Ford Explorer ST is a high-performance SUV with a 3.0L V6 Turbo engine delivering 400 HP. It features all-wheel drive, a 10-speed automatic transmission, and advanced safety features like Ford Co-Pilot360. Perfect for families who want power and space.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/ford-explorer-202.jpg" alt="Ford Explorer ST">
+                <h3>Ford Explorer</h3>
+                <p>ST - 2024</p>
+                <p class="price">$55,000</p>
+                <p><strong>Rental:</strong> 720 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Audi A6 45 TFSI - 2024 -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="A6"
+            data-price="55000"
+            data-mileage="9000"
+            data-fuel="petrol"
+            transmission="7-speed S tronic" 
+            fuel-type="Petrol" 
+            drivetrain="FWD" 
+            color="Ibiza White" 
+            features="Virtual Cockpit, Heated Seats, Apple CarPlay, LED Headlights, Wireless Charging, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="261 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/audi-q8-new copy.jpg"
+            data-details-image2="../images/audi-q8-new copy2.jpg"
+            data-details-image3="../images/audi-q8-new copy3.avif"
+            data-details-image4="../images/audi-q8-new copy4.jpg" 
+            description="The Audi A6 45 TFSI is a sleek and efficient sedan with a 2.0L I4 Turbo engine producing 261 HP. It features front-wheel drive, a 7-speed S tronic transmission, and advanced tech like the Virtual Cockpit and Apple CarPlay. A great choice for daily commuting and long drives.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-a6-45tfsi-2024.jpg" alt="Audi A6 45 TFSI">
+                <h3>Audi A6</h3>
+                <p>45 TFSI - 2024</p>
+                <p class="price">$55,000</p>
+                <p><strong>Rental:</strong> 710 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW 3 Series M340i - 2024 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="3-Series"
+            data-price="54700"
+            data-mileage="6000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Portimao Blue" 
+            features="Heated Seats, Harman Kardon Sound System, Adaptive Suspension, Wireless Charging, Lane Assist, Panoramic Sunroof"
+            data-engine="3.0L I6 Turbo" 
+            data-horsepower="382 HP" 
+            data-year="2024"
+            data-speed="155 mph"
+            data-details-image1="../images/3-series-new.jpg"
+            data-details-image2="../images/3-series-new2.jpg"
+            data-details-image3="../images/3-series-new3.webp"
+            data-details-image4="../images/3-series-new4.webp" 
+            description="The BMW M340i is a sporty sedan with a 3.0L I6 Turbo engine delivering 382 HP. It features all-wheel drive, an 8-speed automatic transmission, and advanced tech like Adaptive Suspension and Harman Kardon Sound System. Perfect for driving enthusiasts.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/bmw-m340i-2024.jpg" alt="BMW 3 Series M340i">
+                <h3>BMW 3 Series</h3>
+                <p>M340i - 2024</p>
+                <p class="price">$54,700</p>
+                <p><strong>Rental:</strong> 680 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Mercedes-Benz E-Class E 350 - 2024 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="E-Class"
+            data-price="54000"
+            data-mileage="10000"
+            data-fuel="petrol"
+            transmission="9-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Obsidian Black" 
+            features="Heated Seats, Panoramic Sunroof, Burmester Sound System, Adaptive Cruise Control, Wireless Charging, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="255 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/e-class-new.jpg"
+            data-details-image2="../images/e-class-newb.jpg"
+            data-details-image3="../images/e-class-newc.avif"
+            data-details-image4="../images/e-class-newd.jpg" 
+            description="The Mercedes-Benz E 350 is a luxury sedan with a 2.0L I4 Turbo engine producing 255 HP. It features rear-wheel drive, a 9-speed automatic transmission, and advanced tech like the Burmester Sound System and Adaptive Cruise Control. A perfect blend of comfort and elegance.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/e350-2024.jpg" alt="Mercedes-Benz E-Class E 350">
+                <h3>Mercedes-Benz E-Class</h3>
+                <p>E 350 - 2024</p>
+                <p class="price">$54,000</p>
+                <p><strong>Rental:</strong> 700 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Tesla Model 3 Performance - 2024 -->
+            <div class="car-card" 
+            data-brand="tesla"
+            data-model="Model-3"
+            data-price="54000"
+            data-mileage="4000"
+            data-fuel="electric"
+            transmission="Single-speed automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="Deep Blue Metallic" 
+            features="Autopilot, Premium Audio, Heated Seats, Wireless Charging, Panoramic Glass Roof, Tesla App Integration"
+            data-engine="Dual Electric Motors" 
+            data-horsepower="450 HP" 
+            data-year="2024"
+            data-speed="162 mph"
+            data-details-image1="../images/model3-new.jpg"
+            data-details-image2="../images/model3-new2.jpg"
+            data-details-image3="../images/model3-new3.avif"
+            data-details-image4="../images/model3-new4.webp" 
+            description="The Tesla Model 3 Performance is an all-electric sedan with dual motors producing 450 HP. It features all-wheel drive, Autopilot, and a sleek design with a Panoramic Glass Roof. Perfect for eco-conscious drivers who want speed and technology.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/tesla-model3-performance-2024.jpg" alt="Tesla Model 3 Performance">
+                <h3>Tesla Model 3</h3>
+                <p>Performance - 2024</p>
+                <p class="price">$54,000</p>
+                <p><strong>Rental:</strong> 700 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Audi Q5 55 TFSI e - 2025 -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="Q5"
+            data-price="53900"
+            data-mileage="5000"
+            data-fuel="plug-in hybrid"
+            transmission="7-speed S tronic" 
+            fuel-type="Plug-in Hybrid" 
+            drivetrain="AWD" 
+            color="Daytona Gray" 
+            features="Virtual Cockpit, Bang & Olufsen Sound System, Heated Seats, Adaptive Air Suspension, Wireless Charging, Lane Assist"
+            data-engine="2.0L I4 Turbo + Electric Motor" 
+            data-horsepower="362 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/q5-new.jpg"
+            data-details-image2="../images/q5-new2.jpeg"
+            data-details-image3="../images/q5-new3.jpg"
+            data-details-image4="../images/q5-new4.jpg" 
+            description="The Audi Q5 55 TFSI e is a plug-in hybrid SUV with a combined output of 362 HP. It features Quattro all-wheel drive, a 7-speed S tronic transmission, and advanced tech like the Virtual Cockpit and Bang & Olufsen Sound System. Perfect for eco-conscious drivers who want luxury and performance.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-q5-tfsi-2025.jpg" alt="Audi Q5 55 TFSI e">
+                <h3>Audi Q5</h3>
+                <p>55 TFSI e - 2025</p>
+                <p class="price">$53,900</p>
+                <p><strong>Rental:</strong> 720 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW 5 Series 540i - 2023 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="5-Series"
+            data-price="52000"
+            data-mileage="15000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Alpine White" 
+            features="Heated Seats, Panoramic Sunroof, Harman Kardon Sound System, Adaptive Suspension, Wireless Charging, Lane Assist"
+            data-engine="3.0L I6 Turbo" 
+            data-horsepower="335 HP" 
+            data-year="2023"
+            data-speed="155 mph"
+            data-details-image1="../images/5-series-new.jpg"
+            data-details-image2="../images/5-series-newb.jpg"
+            data-details-image3="../images/5-series-newc.avif"
+            data-details-image4="../images/5-series-newd.avif" 
+            description="The BMW 540i combines luxury and performance with a 3.0L I6 Turbo engine producing 335 HP. It features an 8-speed automatic transmission, rear-wheel drive, and advanced technology like Adaptive Suspension and Harman Kardon Sound System. Perfect for those who seek a balance of comfort and sportiness.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/bmw-540i-2023.jpg" alt="BMW 540i">
+                <h3>BMW 5 Series</h3>
+                <p>540i - 2023</p>
+                <p class="price">$52,000</p>
+                <p><strong>Rental:</strong> 700 USD/month</p>
+                
+            </a>
+        </div>
+            
+            <!-- Audi Q5 45 TFSI - 2024 -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="Q5"
+            data-price="50000"
+            data-mileage="10000"
+            data-fuel="petrol"
+            transmission="7-speed S tronic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Glacier White" 
+            features="Virtual Cockpit, Heated Seats, Apple CarPlay, LED Headlights, Wireless Charging, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="261 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/q5-new.jpg"
+            data-details-image2="../images/q5-newb.avif"
+            data-details-image3="../images/q5-newc.jpg"
+            data-details-image4="../images/q5-newd.jpg" 
+            description="The Audi Q5 45 TFSI is a versatile SUV with a 2.0L I4 Turbo engine producing 261 HP. It features Quattro all-wheel drive, a 7-speed S tronic transmission, and advanced tech like the Virtual Cockpit and Apple CarPlay. Perfect for families and daily commuters.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-q5-tfsi-2024.jpg" alt="Audi Q5 45 TFSI">
+                <h3>Audi Q5</h3>
+                <p>45 TFSI - 2024</p>
+                <p class="price">$50,000</p>
+                <p><strong>Rental:</strong> 650 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Tesla Model 3 Long Range - 2025 -->
+            <div class="car-card" 
+            data-brand="tesla"
+            data-model="Model-3"
+            data-price="48000"
+            data-mileage="5000"
+            data-fuel="electric"
+            transmission="Single-speed automatic" 
+            fuel-type="Electric" 
+            drivetrain="AWD" 
+            color="Midnight Silver Metallic" 
+            features="Autopilot, Premium Audio, Heated Seats, Wireless Charging, Panoramic Glass Roof, Tesla App Integration"
+            data-engine="Dual Electric Motors" 
+            data-horsepower="346 HP" 
+            data-year="2025"
+            data-speed="145 mph"
+            data-details-image1="../images/model3-new.jpg"
+            data-details-image2="../images/model3-newb.jpg"
+            data-details-image3="../images/model3-newc.jpg"
+            data-details-image4="../images/model3-newd.avif" 
+            description="The Tesla Model 3 Long Range is an all-electric sedan with dual motors producing 346 HP. It features all-wheel drive, Autopilot, and a sleek design with a Panoramic Glass Roof. Perfect for eco-conscious drivers who want range and technology.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/tesla-model3-long-2025.jpg" alt="Tesla Model 3 Long Range">
+                <h3>Tesla Model 3</h3>
+                <p>Long Range - 2025</p>
+                <p class="price">$48,000</p>
+                <p><strong>Rental:</strong> 620 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW X3 xDrive30i - 2025 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="X-Series"
+            data-price="47000"
+            data-mileage="8000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Phytonic Blue" 
+            features="Heated Seats, Panoramic Sunroof, Harman Kardon Sound System, Wireless Charging, Lane Assist, Adaptive Suspension"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="248 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/x3-new.jpg"
+            data-details-image2="../images/x3-new2.jpg"
+            data-details-image3="../images/x3-new3.avif"
+            data-details-image4="../images/x3-new4.jpg" 
+            description="The BMW X3 xDrive30i is a compact luxury SUV with a 2.0L I4 Turbo engine producing 248 HP. It features all-wheel drive, an 8-speed automatic transmission, and advanced tech like Harman Kardon Sound System and Adaptive Suspension. Perfect for urban adventurers.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/x3-xdrive30i-2025.jpg" alt="BMW X3 xDrive30i">
+                <h3>BMW X3</h3>
+                <p>xDrive30i - 2025</p>
+                <p class="price">$47,000</p>
+                <p><strong>Rental:</strong> 600 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Ford Mustang GT - 2025 -->
+            <div class="car-card" 
+            data-brand="ford"
+            data-model="Mustang"
+            data-price="45000"
+            data-mileage="6000"
+            data-fuel="petrol"
+            transmission="10-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Race Red" 
+            features="Heated Seats, Bang & Olufsen Sound System, Adaptive Cruise Control, Wireless Charging, Track Apps, Performance Package"
+            data-engine="5.0L V8" 
+            data-horsepower="450 HP" 
+            data-year="2025"
+            data-speed="163 mph"
+            data-details-image1="../images/mustang-new.jpg"
+            data-details-image2="../images/mustang-new2.jpg"
+            data-details-image3="../images/mustang-new3.jpg"
+            data-details-image4="../images/mustang-new4.jpg" 
+            description="The Ford Mustang GT is a legendary muscle car with a 5.0L V8 engine producing 450 HP. It features rear-wheel drive, a 10-speed automatic transmission, and advanced tech like Adaptive Cruise Control and Track Apps. Perfect for driving enthusiasts.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/ford-mustang-2025.jpg" alt="Ford Mustang GT">
+                <h3>Ford Mustang</h3>
+                <p>GT - 2025</p>
+                <p class="price">$45,000</p>
+                <p><strong>Rental:</strong> 580 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Ford Mustang GT - 2023 -->
+            <div class="car-card" 
+            data-brand="ford"
+            data-model="Mustang"
+            data-price="45000"
+            data-mileage="15000"
+            data-fuel="petrol"
+            transmission="10-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Oxford White" 
+            features="Heated Seats, Bang & Olufsen Sound System, Adaptive Cruise Control, Wireless Charging, Track Apps, Performance Package"
+            data-engine="5.0L V8" 
+            data-horsepower="450 HP" 
+            data-year="2023"
+            data-speed="163 mph"
+            data-details-image1="../images/mustang-new.jpg"
+            data-details-image2="../images/mustang-newb.jpg"
+            data-details-image3="../images/mustang-newc.webp"
+            data-details-image4="../images/mustang-newd.avif" 
+            description="The Ford Mustang GT is a legendary muscle car with a 5.0L V8 engine producing 450 HP. It features rear-wheel drive, a 10-speed automatic transmission, and advanced tech like Adaptive Cruise Control and Track Apps. Perfect for driving enthusiasts.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/ford-mustang-2023.jpg" alt="Ford Mustang GT">
+                <h3>Ford Mustang</h3>
+                <p>GT - 2023</p>
+                <p class="price">$45,000</p>
+                <p><strong>Rental:</strong> 580 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW X3 xDrive30i - 2024 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="X-Series"
+            data-price="45000"
+            data-mileage="12000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Alpine White" 
+            features="Heated Seats, Panoramic Sunroof, Harman Kardon Sound System, Wireless Charging, Lane Assist, Adaptive Suspension"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="248 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/x3-new.jpg"  
+            data-details-image2="../images/x3-newb.jpg"  
+            data-details-image3="../images/x3-newc.jpg"  
+            data-details-image4="../images/x3-newd.webp"   
+            description="The BMW X3 xDrive30i is a compact luxury SUV with a 2.0L I4 Turbo engine producing 248 HP. It features all-wheel drive, an 8-speed automatic transmission, and advanced tech like Harman Kardon Sound System and Adaptive Suspension. Perfect for urban adventurers.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/x3-xdrive30i-2025.jpg" alt="BMW X3 xDrive30i">
+                <h3>BMW X3</h3>
+                <p>xDrive30i - 2024</p>
+                <p class="price">$45,000</p>
+                <p><strong>Rental:</strong> 580 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Mercedes-Benz C-Class C 300 - 2025 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="C-Class"
+            data-price="43600"
+            data-mileage="7000"
+            data-fuel="petrol"
+            transmission="9-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Polar White" 
+            features="Heated Seats, Panoramic Sunroof, Burmester Sound System, Wireless Charging, Adaptive Cruise Control, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="255 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/cclass-new.jpg"
+            data-details-image2="../images/cclass-new2.jpg"
+            data-details-image3="../images/cclass-new3.webp"
+            data-details-image4="../images/cclass-new4.avif" 
+            description="The Mercedes-Benz C 300 is a luxury sedan with a 2.0L I4 Turbo engine producing 255 HP. It features all-wheel drive, a 9-speed automatic transmission, and advanced tech like the Burmester Sound System and Adaptive Cruise Control. Perfect for those who seek elegance and performance.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/c300-2025.jpg" alt="Mercedes-Benz C-Class C 300">
+                <h3>Mercedes-Benz C-Class</h3>
+                <p>C 300 - 2025</p>
+                <p class="price">$43,600</p>
+                <p><strong>Rental:</strong> 560 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Ford Edge ST - 2023 -->
+            <div class="car-card" 
+            data-brand="ford"
+            data-model="Edge"
+            data-price="43100"
+            data-mileage="18000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Performance Blue" 
+            features="Heated Seats, Panoramic Sunroof, Bang & Olufsen Sound System, Adaptive Cruise Control, Wireless Charging, Ford Co-Pilot360"
+            data-engine="2.7L V6 Turbo" 
+            data-horsepower="335 HP" 
+            data-year="2023"
+            data-speed="143 mph"
+            data-details-image1="../images/edge-new.jpg"
+            data-details-image2="../images/edge-new2.webp"
+            data-details-image3="../images/edge-new3.webp"
+            data-details-image4="../images/edge-new4.webp" 
+            description="The Ford Edge ST is a high-performance SUV with a 2.7L V6 Turbo engine delivering 335 HP. It features all-wheel drive, an 8-speed automatic transmission, and advanced safety features like Ford Co-Pilot360. Perfect for families who want power and space.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/ford-edge-2023.jpg" alt="Ford Edge ST">
+                <h3>Ford Edge</h3>
+                <p>ST - 2023</p>
+                <p class="price">$43,100</p>
+                <p><strong>Rental:</strong> 570 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- BMW 3 Series 330i - 2025 -->
+            <div class="car-card" 
+            data-brand="bmw"
+            data-model="3-Series"
+            data-price="42000"
+            data-mileage="6000"
+            data-fuel="petrol"
+            transmission="8-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Portimao Blue" 
+            features="Heated Seats, Harman Kardon Sound System, Adaptive Suspension, Wireless Charging, Lane Assist, Panoramic Sunroof"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="255 HP" 
+            data-year="2025"
+            data-speed="155 mph"
+            data-details-image1="../images/3-series-new.jpg"
+            data-details-image2="../images/3-series-newb.jpg"
+            data-details-image3="../images/3-series-newc.jpg"
+            data-details-image4="../images/3-series-newd.jpg" 
+            description="The BMW 330i is a sporty sedan with a 2.0L I4 Turbo engine producing 255 HP. It features rear-wheel drive, an 8-speed automatic transmission, and advanced tech like Adaptive Suspension and Harman Kardon Sound System. Perfect for driving enthusiasts.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/bmw-330i-2025.jpg" alt="BMW 3 Series 330i">
+                <h3>BMW 3 Series</h3>
+                <p>330i - 2025</p>
+                <p class="price">$42,000</p>
+                <p><strong>Rental:</strong> 550 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Mercedes-Benz C-Class C 200 - 2024 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="C-Class"
+            data-price="41600"
+            data-mileage="9000"
+            data-fuel="petrol"
+            transmission="9-speed automatic" 
+            fuel-type="Petrol" 
+            drivetrain="RWD" 
+            color="Obsidian Black" 
+            features="Heated Seats, Panoramic Sunroof, Burmester Sound System, Wireless Charging, Adaptive Cruise Control, Lane Assist"
+            data-engine="1.5L I4 Turbo" 
+            data-horsepower="201 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/cclass-new.jpg"
+            data-details-image2="../images/cclass-newb.jpg"
+            data-details-image3="../images/cclass-newc.jpg"
+            data-details-image4="../images/cclass-newd.avif" 
+            description="The Mercedes-Benz C 200 is a luxury sedan with a 1.5L I4 Turbo engine producing 201 HP. It features rear-wheel drive, a 9-speed automatic transmission, and advanced tech like the Burmester Sound System and Adaptive Cruise Control. Perfect for those who seek elegance and efficiency.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/c200-2024.jpg" alt="Mercedes-Benz C-Class C 200">
+                <h3>Mercedes-Benz C-Class</h3>
+                <p>C 200 - 2024</p>
+                <p class="price">$41,600</p>
+                <p><strong>Rental:</strong> 500 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Audi A4 45 TFSI - 2025 -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="A4"
+            data-price="41500"
+            data-mileage="8000"
+            data-fuel="petrol"
+            transmission="7-speed S tronic" 
+            fuel-type="Petrol" 
+            drivetrain="AWD" 
+            color="Daytona Gray" 
+            features="Virtual Cockpit, Heated Seats, Apple CarPlay, LED Headlights, Wireless Charging, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="261 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/a4-new.avif"
+            data-details-image2="../images/a4-new2.webp"
+            data-details-image3="../images/a4-new3.webp"
+            data-details-image4="../images/a4-new4.webp" 
+            description="The Audi A4 45 TFSI is a sleek and efficient sedan with a 2.0L I4 Turbo engine producing 261 HP. It features Quattro all-wheel drive, a 7-speed S tronic transmission, and advanced tech like the Virtual Cockpit and Apple CarPlay. A great choice for daily commuting and long drives.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-a4-tfsi-2025.jpg" alt="Audi A4 45 TFSI">
+                <h3>Audi A4</h3>
+                <p>45 TFSI - 2025</p>
+                <p class="price">$41,500</p>
+                <p><strong>Rental:</strong> 540 USD/month</p>
+                
+            </a>
+        </div>
+            
+            <!-- Audi A4 40 TFSI - 2024 -->
+            <div class="car-card" 
+            data-brand="audi"
+            data-model="A4"
+            data-price="39100"
+            data-mileage="11000"
+            data-fuel="petrol"
+            transmission="7-speed S tronic" 
+            fuel-type="Petrol" 
+            drivetrain="FWD" 
+            color="Ibiza White" 
+            features="Virtual Cockpit, Heated Seats, Apple CarPlay, LED Headlights, Wireless Charging, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="201 HP" 
+            data-year="2024"
+            data-speed="130 mph"
+            data-details-image1="../images/a4-new.jpg"
+            data-details-image2="../images/a4-newb.jpg"
+            data-details-image3="../images/a4-newc.jpg"
+            data-details-image4="../images/a4-newd.jpg" 
+            description="The Audi A4 40 TFSI is a sleek and efficient sedan with a 2.0L I4 Turbo engine producing 201 HP. It features front-wheel drive, a 7-speed S tronic transmission, and advanced tech like the Virtual Cockpit and Apple CarPlay. A great choice for daily commuting and long drives.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/audi-a4-tfsi-2024.jpg" alt="Audi A4 40 TFSI">
+                <h3>Audi A4</h3>
+                <p>40 TFSI - 2024</p>
+                <p class="price">$39,100</p>
+                <p><strong>Rental:</strong> 490 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Mercedes-Benz A-Class A 220 - 2025 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="A-Class"
+            data-price="35000"
+            data-mileage="5000"
+            data-fuel="petrol"
+            transmission="7-speed dual-clutch automatic" 
+            fuel-type="Petrol" 
+            drivetrain="FWD" 
+            color="Cosmos Black" 
+            features="Heated Seats, Panoramic Sunroof, MBUX Infotainment System, Wireless Charging, Adaptive Cruise Control, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="188 HP" 
+            data-year="2025"
+            data-speed="130 mph"
+            data-details-image1="../images/aclass-new.jpg"
+            data-details-image2="../images/aclass-new2.jpg"
+            data-details-image3="../images/aclass-new3.jpg"
+            data-details-image4="../images/aclass-new4.jpg" 
+            description="The Mercedes-Benz A 220 is a compact luxury sedan with a 2.0L I4 Turbo engine producing 188 HP. It features front-wheel drive, a 7-speed dual-clutch automatic transmission, and advanced tech like the MBUX Infotainment System. Perfect for urban drivers who want style and comfort.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/a220-2025.jpg" alt="Mercedes-Benz A-Class A 220">
+                <h3>Mercedes-Benz A-Class</h3>
+                <p>A 220 - 2025</p>
+                <p class="price">$35,000</p>
+                <p><strong>Rental:</strong> 450 USD/month</p>
+                
+            </a>
+        </div>
+
+            <!-- Mercedes-Benz A-Class A 220 - 2023 -->
+            <div class="car-card" 
+            data-brand="mercedes"
+            data-model="A-Class"
+            data-price="35000"
+            data-mileage="15000"
+            data-fuel="petrol"
+            transmission="7-speed dual-clutch automatic" 
+            fuel-type="Petrol" 
+            drivetrain="FWD" 
+            color="Polar White" 
+            features="Heated Seats, Panoramic Sunroof, MBUX Infotainment System, Wireless Charging, Adaptive Cruise Control, Lane Assist"
+            data-engine="2.0L I4 Turbo" 
+            data-horsepower="188 HP" 
+            data-year="2023"
+            data-speed="130 mph"
+            data-details-image1="../images/aclass-new.jpg"
+            data-details-image2="../images/aclass-newb.jpg"
+            data-details-image3="../images/aclass-newc.jpg"
+            data-details-image4="../images/aclass-newd.webp" 
+            description="The Mercedes-Benz A 220 is a compact luxury sedan with a 2.0L I4 Turbo engine producing 188 HP. It features front-wheel drive, a 7-speed dual-clutch automatic transmission, and advanced tech like the MBUX Infotainment System. Perfect for urban drivers who want style and comfort.">
+            <a style="text-decoration: none; color:black" class="btn" href="../html files/carDetails.html">
+                <img src="../images/a220-2023.jpg" alt="Mercedes-Benz A-Class A 220">
+                <h3>Mercedes-Benz A-Class</h3>
+                <p>A 220 - 2023</p>
+                <p class="price">$35,000</p>
+                <p><strong>Rental:</strong> 450 USD/month</p>
+                
+            </a>
+        </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Store available models for each car make
+            const carModels = {
+                mercedes: ["A-Class", "C-Class", "G-Class", "E-Class", "S-Class"],
+                bmw: ["2 Series", "3 Series", "5 Series", "8 Series", "X Series"],
+                audi: ["A3", "A4", "A6", "Q3", "Q5"],
+                tesla: ["Model S", "Model X", "Model Y", "Model 3"],
+                ford: ["Fiesta", "Mustang", "F-150", "Explorer", "Edge"],
+                porsche: ["911", "Cayenne", "Taycan", "Panamera"]
+            };
+        
+            // Select elements
+            const makeSelect = document.getElementById("make");
+            const modelSelect = document.getElementById("model");
+        
+            // Disable model dropdown initially
+            modelSelect.disabled = true;
+        
+            makeSelect.addEventListener("change", function () {
+                const selectedMake = this.value;
+        
+                // Clear previous models
+                modelSelect.innerHTML = '<option value="">All</option>';
+        
+                if (selectedMake) {
+                    // Enable the model dropdown
+                    modelSelect.disabled = false;
+        
+                    // Populate models for the selected make
+                    carModels[selectedMake].forEach(model => {
+                        const option = document.createElement("option");
+                        option.value = model.toLowerCase().replace(/\s+/g, "-");
+                        option.textContent = model;
+                        modelSelect.appendChild(option);
+                    });
+                } else {
+                    // Disable the model dropdown again if no make is selected
+                    modelSelect.disabled = true;
+                }
+            });
+        });
+    </script>
+
+</body>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+                <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+                <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+                <li><a href="../html files/bookmark.html">Bookmark</a></li>
+                <li><a href="../html files/faq.html">FAQ</a></li>
+                <li><a href="../html files/contact-us.html">Contact Us</a></li>
+                <li><a href="../html files/about-us.html">About Us</a></li>
+                <li><a href="../html files/reviews.html">Reviews</a></li>
+                <li><a href="../html files/partners.html">Partnerships</a></li>
+                <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+                <li><a href="data-protection.html">Data protection</a></li>
+                <li><a href="terms.html">Terms and Conditions</a></li>
+            </ul>
+        </div>
+        
+        <!-- Brands Listing -->
+        <div class="footer-section brands-list">
+            <h4>Browse by Brand</h4>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: Devsquad@surgemotors.com</p>
+            <p>Phone:+961 70 777 676 </p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+    </div>
+</footer>
+</html>

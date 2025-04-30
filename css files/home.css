@@ -1,0 +1,1085 @@
+/* Reset and General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styles */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+}
+
+/* Navigation Links Container */
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+/* Navigation Links */
+.nav-links li {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(228, 213, 213);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Initially hide the arrow for dropdown */
+.dropdown > a::after {
+    content: "▲";
+    font-size: 8px;
+    color: white;
+    margin-left: 5px;
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Show and rotate the arrow on hover */
+.dropdown:hover > a::after {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    list-style-type: none;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.dropdown-menu li a {
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Brand Logos */
+.brand-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Cart Icon */
+.Book-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Icons Section */
+.icons {
+    display: flex;
+    gap: 40px;
+}
+
+/* Wishlist Icon */
+.wishlist-icon {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.wishlist-icon:hover {
+    color: silver;
+}
+
+/* Profile Image */
+.icon-img {
+    width: 25px;
+    height: 25px;
+    filter: grayscale(100%) brightness(90%);
+    transition: filter 0.3s ease;
+}
+
+.icon-img:hover {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Navbar Items Hover Effects */
+.nav-links li, .icons a {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 8px 12px;
+    transition: border 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li:hover, .icons a:hover {
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Dropdown Items Hover */
+.dropdown-menu li:hover {
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* bookmark and Profile Icons */
+.Book-icon, .icon-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 5px;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.Book-icon:hover, .icon-img:hover {
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown for Cart */
+.Book-dropdown:hover .cart-dropdown-menu {
+    display: block;
+}
+
+/* Cart Dropdown Menu */
+.Book-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Each item in the cart dropdown */
+.Book-dropdown-menu li {
+    padding: 8px 15px;
+    white-space: nowrap;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Total amount in the cart */
+.Book-dropdown-menu li strong {
+    font-size: 16px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Hover Effects for Cart Dropdown */
+.Book-dropdown-menu li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Cart Buttons Styling */
+.Book-dropdown-menu li a {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    width: 100%;
+    text-decoration: none;
+}
+
+/* Hover Effects for Cart Buttons */
+.Book-dropdown-menu li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Brand Dropdown Menu Items */
+.brand-dropdown-item {
+    padding: 8px 15px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover and Click Effects for Brand Dropdown Items */
+.brand-dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown .icon {
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown .icon-img {
+    width: 40px; /* Fixed to the original size */
+    height: 40px;
+    border-radius: 50%;
+    filter: grayscale(100%) brightness(90%);
+    transition: filter 0.3s ease;
+}
+
+.profile-dropdown .icon-img:hover {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown-menu {
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background-color: black;
+    color: silver;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Profile Dropdown Header Styling */
+.profile-header {
+    padding-bottom: 15px;
+    font-size: 16px; /* Smaller font size */
+    color: silver;
+    font-weight: bold;
+}
+
+.quote {
+    display: block;
+    font-style: italic;
+    color: rgb(241, 241, 241); /* Red for emphasis */
+    margin-top: 5px;
+}
+
+/* Button Styles */
+.btn {
+    padding: 6px 12px;
+    margin: 8px 5px;
+    text-align: center;
+    background-color: silver;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; /* Smaller font size */
+}
+
+.btn:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Display the profile dropdown on hover */
+.profile-dropdown:hover .profile-dropdown-menu {
+    display: block;
+}
+
+/* Hover effect for dropdown items */
+.profile-dropdown-menu li:hover {
+    background-color: rgba(62, 62, 62, 0.1); /* Subtle red hover effect */
+}
+
+/* Navbar item hover effect for Profile */
+.icons a:hover, .profile-dropdown:hover .icon-img {
+    background: rgba(244, 2, 2, 0.1);
+    border-radius: 50%;
+}
+
+
+
+/* Added code for mobile function */
+/* Hide desktop navbar on mobile */
+@media (max-width: 768px) {
+    .nav-links, .icons {
+        display: none;
+    }
+
+    .navbar {
+        padding: 15px;
+    }
+
+    /* Menu button */
+    .menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
+    }
+
+    /* Full-screen mobile menu */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, #000000, #1a1a1a);
+        z-index: 1000;
+        padding-top: 60px;
+        text-align: center;
+        overflow-y: auto;
+        opacity: 0;
+        transform: translateY(-100%);
+        transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s ease-in-out; /* Slower dropdown */
+    }
+
+    .mobile-menu.active {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .mobile-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mobile-menu li {
+        padding: 15px;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: transform 0.2s ease-in-out, background 0.3s ease;
+    }
+
+    .mobile-menu a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 15px;
+        transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    /* Fix "All Vehicles" button design */
+    .mobile-menu .all-vehicles {
+        background: none; /* Remove red background */
+        color: white; /* Match other buttons */
+    }
+
+    /* Hover effect */
+    .mobile-menu a:hover {
+        background: rgba(255, 0, 0, 0.3);
+        transform: scale(1.05);
+    }
+
+    /* Click (Press) Effect */
+    .mobile-menu a:active {
+        background: rgba(255, 0, 0, 0.5);
+        transform: scale(0.95) rotate(-1deg);
+        transition: transform 0.1s ease, background 0.2s ease;
+    }
+
+    /* Menu Header (Logo + Slogan) */
+    .menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-logo {
+        width: 90px;
+        height: auto;
+        margin-right: 10px;
+    }
+
+    .menu-slogan {
+        color: white;
+        font-size: 13px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* Close button */
+    .close-menu {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        font-size: 24px;
+        cursor: pointer;
+        color: white;
+    }
+}
+
+/* Hide mobile menu on desktop */
+@media (min-width: 769px) {
+    .menu-btn, .mobile-menu {
+        display: none !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Search & Filter Section */
+
+/* New Slideshow Container */
+/* Slideshow container */
+.new-slideshow-container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjusted height for desktop */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Video element styling */
+.slideshow-video {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit: contain; /* Ensures the entire video is visible */
+}
+
+/* Navigation Buttons (for desktop) */
+.new-slideshow-container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* Hover effect for buttons */
+.new-slideshow-container button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Button positions for desktop */
+.new-slideshow-container .prev {
+    left: 10px;
+}
+
+.new-slideshow-container .next {
+    right: 10px;
+}
+
+/* Mute/Unmute Button */
+.new-slideshow-container .mute-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+/* Mute button hover effect */
+.new-slideshow-container .mute-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    /* Adjust height for mobile */
+    .new-slideshow-container {
+        height: 70vh; /* Reduce height for mobile */
+    }
+
+    /* Adjust width and fit for mobile */
+    .slideshow-video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ensures video is fully visible */
+    }
+
+    /* Navigation buttons for mobile */
+    .new-slideshow-container button {
+        font-size: 15px; /* Larger buttons for easier clicking */
+        padding: 16px 25px; /* Increase button size */
+    }
+
+    /* Position buttons for mobile (more centered) */
+    .new-slideshow-container .prev {
+        left: 20px;
+         /* Adjust button position for mobile */
+    }
+
+    .new-slideshow-container .next {
+        right: 20px; /* Adjust button position for mobile */
+    }
+
+    /* Adjust mute/unmute button size and position */
+    .new-slideshow-container .mute-btn {
+        font-size: 15px; /* Larger button for mobile */
+        padding: 10px; /* Bigger clickable area */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Featured Cars Section */
+.featured-cars {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    
+}
+
+.featured-cars h2 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Slider Container */
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Car Slider */
+.car-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE */
+}
+
+.car-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+/* Car Card */
+.car-card {
+    flex: 0 0 300px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+    text-decoration: none; /* Removes link styles */
+    color: inherit; /* Inherit normal text color */
+    display: block; /* Ensures the whole div is clickable */
+}
+
+.car-card:hover {
+    transform: scale(1.05);
+}
+
+.car-card h3,
+.car-card p {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Normal text color */
+}
+
+/* Ensure the price remains green */
+.car-card .price {
+    color: green;
+}
+
+/* Remove default link styling */
+.car-card:visited,
+.car-card:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Car Image */
+.car-card img {
+    width: 100%;
+    border-radius: 10px;
+    height: 180px;
+    object-fit: contain;
+}
+
+/* Car Details */
+.car-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.car-card .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+}
+
+.car-card .mileage {
+    font-size: 14px;
+    color: gray;
+}
+
+
+/* Slider Buttons */
+.prev-btn, .next-btn {
+    background: black;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev-btn {
+    left: -50px;
+}
+
+.next-btn {
+    right: -50px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: gray;
+}
+
+/* Explore Button */
+.explore-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.explore-btn:hover {
+    background: black;
+    color: white;
+}
+
+/* Extra Arrows Below Images */
+.extra-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.extra-prev-btn, .extra-next-btn {
+    background: black;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 0 15px;
+}
+
+.extra-prev-btn:hover, .extra-next-btn:hover {
+    background: gray;
+}
+
+/* Slider Indicator */
+.slider-indicator {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+
+/* MOBILE RESPONSIVENESS */
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .featured-cars h2 {
+        font-size: 25px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    /* Slider Container */
+    .slider-container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    /* Car Card */
+    .car-card {
+        flex: 0 0 95%; /* Take up most of the screen width */
+        margin: 0 10px; /* Add small margin to show part of the next card */
+        transition: transform 0.3s ease;
+    }
+
+    /* Add a slight transform to show part of the next card */
+    .car-slider {
+        gap: 10px;
+       /* Adjust this to show more or less of the next card */
+    }
+
+    .car-card img {
+        height: 200px; /* Increase image size to fill the card */
+    }
+
+    .car-card h3 {
+        font-size: 16px;
+        margin: 8px 0;
+    }
+
+    .car-card .price {
+        font-size: 14px;
+    }
+
+    /* Slider Buttons */
+    .prev-btn, .next-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    /* Extra Controls */
+    .extra-prev-btn, .extra-next-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+
+    .extra-controls {
+        margin-top: 8px;
+        margin-bottom: 12px;
+    }
+
+    .explore-btn {
+        padding: 8px 16px;
+    }
+}
+
+/* MOBILE VIEW FOR SMALL SCREENS */
+@media (max-width: 480px) {
+    .featured-cars {
+        padding: 20px 10px;
+    }
+
+    .car-card {
+        flex: 0 0 90%; /* Make the card larger */
+        margin: 0 10px; /* Keep small margin to show the second card */
+    }
+
+    .car-slider {
+        gap: 5px;
+        transform: translateX(-10%); /* Show more of the second card */
+    }
+
+    .car-card img {
+        height: 180px; /* Adjust image size */
+    }
+
+    .car-card h3 {
+        font-size: 14px;
+    }
+
+    .car-card .price {
+        font-size: 12px;
+    }
+
+    .prev-btn, .next-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+
+    .extra-prev-btn, .extra-next-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+
+    .explore-btn {
+        padding: 6px 12px;
+    }
+}
+
+
+
+
+
+/* Latest News & Updates Section */
+/* Latest News & Updates Section */
+.latest-news {
+    text-align: center;
+    padding: 100px 100px;
+    background-color: #f8f8f8;
+}
+
+.latest-news h2 {
+    font-size: 24px;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* News Carousel Container */
+.news-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+}
+
+/* News Item */
+.news-item {
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+    display: block; /* Make the whole div clickable */
+    text-decoration: none; /* Remove link styling */
+    color: inherit; /* Inherit the color from parent */
+}
+
+/* Hover effect on news item */
+.news-item:hover {
+    transform: scale(1.05);
+}
+
+/* News Thumbnail */
+.news-thumbnail {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* News Headline */
+.news-item h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: black; /* Ensure it's not underlined */
+}
+
+/* Remove underline for anchor elements within the news item */
+.news-item a {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Inherit color from parent */
+}
+
+/* Remove underline on focus, hover, and active states */
+.news-item a:focus,
+.news-item a:hover,
+.news-item a:active {
+    text-decoration: none; /* No underline */
+    color: inherit; /* Keep the color consistent */
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .news-carousel {
+        flex-direction: column; /* Stack news items vertically */
+        gap: 30px; /* Adjust the space between items */
+    }
+
+    .news-item {
+        width: 100%; 
+        /* Make each item full width on mobile */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Footer Styles */
+.footer {
+    background-color: #111; /* Black background */
+    color: #fff; /* White text */
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+    text-align: left;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+    min-width: 250px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em; /* Reduced font size */
+    margin-bottom: 12px; /* Adjusted margin */
+    color: #fff;
+    border-bottom: 2px solid #000000; /* Red underline */
+    padding-bottom: 8px; /* Adjusted padding */
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9em; /* Slightly smaller font size */
+}
+
+.footer-section a:hover {
+    color: #d12f2f; /* Red hover color */
+}
+
+.footer-bottom {
+    background-color: #222;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.8em; /* Slightly smaller font size */
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #fff;
+}
+
+.footer-section ul li a {
+    font-size: 0.9em; /* Slightly smaller font size */
+    font-weight: 400;
+}
+
+.footer-section.social-media ul {
+    display: flex;
+    flex-direction: column; /* Social media links stacked vertically */
+    gap: 10px;
+}
+
+.footer-section.social-media ul li a {
+    font-size: 1.1em; /* Reduced font size */
+}
+
+.footer-section.social-media ul li a:hover {
+    color: #d12f2f; /* Red hover color */
+}
+
+
+  

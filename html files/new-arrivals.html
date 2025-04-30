@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - Your Car Dealership</title>
+    <link rel="stylesheet" href="../css files/new-arrivals.css">
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg" class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg" class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg" class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg" class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg" class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html"  class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart"> 
+                </a>
+                
+                
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                <li><a href="viewAll.html" >ALL Vehicles</a></li>
+                <li><a href="sell-car.html">Sell Your Car</a></li>
+                <li><a href="bookmark.html">Bookmark</a></li>
+                
+            </ul>
+        </div>
+        
+
+    </nav>
+    <h1>New Arrivals</h1>
+    <div class="container">
+        <!-- Car 1 -->
+        <a style="cursor: pointer; text-decoration: none;"
+            href="carDetails.html?name=Tesla%20Model%20S&model=Long%20Range%20-%202025&year=2025&price=94990&image=http%3A%2F%2F127.0.0.1%3A5502%2Fimages%2Ftesla-models-2025.jpg&image1=..%2Fimages%2Fmodel-s-new.jpg&image2=..%2Fimages%2Fmodel-s-new2.webp&image3=..%2Fimages%2Fmodel-s-new3.jpg&image4=..%2Fimages%2Fmodel-s-new4.jpg&mileage=20000&engine=Dual%20Electric%20Motors&horsepower=670%20HP&speed=155%20mph&transmission=Single-speed%20Automatic&fuelType=Electric&drivetrain=AWD&color=Red&features=Autopilot%2C%2017-inch%20Touchscreen%2C%20Premium%20Audio%20System&description=The%20Tesla%20Model%20S%20Long%20Range%20is%20an%20all-electric%20sedan%20with%20dual%20electric%20motors%20producing%20670%20HP.%20Features%20include%20Autopilot%2C%20a%2017-inch%20touchscreen%2C%20and%20a%20premium%20audio%20system%20for%20a%20futuristic%20driving%20experience.">
+            <div class="car-card">
+                <img src="https://images6.alphacoders.com/115/1154171.jpg" alt="Tesla Model S">
+                <h3>2023 Tesla Model S</h3>
+                <p>Luxury electric sedan with cutting-edge technology.</p>
+            </div>
+        </a>
+
+        <!-- Car 2 -->
+        <a style="cursor: pointer; text-decoration: none;"
+            href="carDetails.html?name=Porsche%20911&model=Carrera%20-%202023&year=2023&price=98200&image=http%3A%2F%2F127.0.0.1%3A5502%2Fimages%2Fpor-carrera-2023.jpg&image1=..%2Fimages%2Fred-porsche-911.jpg&image2=..%2Fimages%2Fred-porsche-9112.webp&image3=..%2Fimages%2Fred-porsche-9113.webp&image4=..%2Fimages%2Fred-porsche-9114.jpg&mileage=18000&engine=3.0L%20Twin%20Turbo&horsepower=379%20HP&speed=182%20mph&transmission=8-speed%20PDK%20dual-clutch&fuelType=Petrol&drivetrain=RWD&color=Black&features=Sport%20Chrono%20Package%2C%20Bose%20Sound%20System%2C%20Heated%20Seats&description=The%20Porsche%20911%20Carrera%20(2023)%20is%20a%20sports%20car%20icon%20with%20a%203.0L%20twin-turbo%20engine%20producing%20379%20HP.%20Features%20include%20the%20Sport%20Chrono%20package%2C%20Bose%20sound%20system%2C%20and%20heated%20seats%20for%20a%20thrilling%20driving%20experience.">
+            <div class="car-card">
+                <img src="https://www.stuttcars.com/wp-content/uploads/2022/05/img_37-scaled.jpeg" alt="Porsche 911">
+                <h3>2023 Porsche 911</h3>
+                <p>Iconic sports car with unmatched performance.</p>
+            </div>
+        </a>
+
+        <!-- Car 3 -->
+        <a style="cursor: pointer; text-decoration: none;" href="carDetails.html?name=Ford%20Mustang&model=GT%20-%202025&year=2025&price=45000&image=http%3A%2F%2F127.0.0.1%3A5502%2Fimages%2Fford-mustang-2025.jpg&image1=..%2Fimages%2Fmustang-new.jpg&image2=..%2Fimages%2Fmustang-new2.jpg&image3=..%2Fimages%2Fmustang-new3.jpg&image4=..%2Fimages%2Fmustang-new4.jpg&mileage=6000&engine=5.0L%20V8&horsepower=450%20HP&speed=163%20mph&transmission=10-speed%20automatic&fuelType=Petrol&drivetrain=RWD&color=Race%20Red&features=Heated%20Seats%2C%20Bang%20%26%20Olufsen%20Sound%20System%2C%20Adaptive%20Cruise%20Control%2C%20Wireless%20Charging%2C%20Track%20Apps%2C%20Performance%20Package&description=The%20Ford%20Mustang%20GT%20is%20a%20legendary%20muscle%20car%20with%20a%205.0L%20V8%20engine%20producing%20450%20HP.%20It%20features%20rear-wheel%20drive%2C%20a%2010-speed%20automatic%20transmission%2C%20and%20advanced%20tech%20like%20Adaptive%20Cruise%20Control%20and%20Track%20Apps.%20Perfect%20for%20driving%20enthusiasts.">
+            <div class="car-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/4e9a7794-1663012415.jpg" alt="Ford Mustang">
+                <h3>2023 Ford Mustang</h3>
+                <p>Classic American muscle car with modern upgrades.</p>
+            </div>
+        </a>
+
+        <!-- Car 4 -->
+        <a style="cursor: pointer; text-decoration: none;" href="carDetails.html?name=BMW%20X3&model=xDrive30i%20-%202025&year=2025&price=47000&image=http%3A%2F%2F127.0.0.1%3A5502%2Fimages%2Fx3-xdrive30i-2025.jpg&image1=..%2Fimages%2Fx3-new.jpg&image2=..%2Fimages%2Fx3-new2.jpg&image3=..%2Fimages%2Fx3-new3.avif&image4=..%2Fimages%2Fx3-new4.jpg&mileage=8000&engine=2.0L%20I4%20Turbo&horsepower=248%20HP&speed=130%20mph&transmission=8-speed%20automatic&fuelType=Petrol&drivetrain=AWD&color=Phytonic%20Blue&features=Heated%20Seats%2C%20Panoramic%20Sunroof%2C%20Harman%20Kardon%20Sound%20System%2C%20Wireless%20Charging%2C%20Lane%20Assist%2C%20Adaptive%20Suspension&description=The%20BMW%20X3%20xDrive30i%20is%20a%20compact%20luxury%20SUV%20with%20a%202.0L%20I4%20Turbo%20engine%20producing%20248%20HP.%20It%20features%20all-wheel%20drive%2C%20an%208-speed%20automatic%20transmission%2C%20and%20advanced%20tech%20like%20Harman%20Kardon%20Sound%20System%20and%20Adaptive%20Suspension.%20Perfect%20for%20urban%20adventurers.">
+            <div class="car-card">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.wrOVFzMen08UPZ_YgiKAwQHaEK&pid=Api&P=0&h=220" alt="BMW X5">
+                <h3>2023 BMW X5</h3>
+                <p>Luxury SUV with premium features and comfort.</p>
+            </div>
+    </div>
+    </a>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-image" src="" alt="Car Image">
+            <h2 id="modal-title"></h2>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script src="../js files/new-arrivals.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+                <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+                <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+                <li><a href="../html files/bookmark.html">Bookmark</a></li>
+                <li><a href="../html files/faq.html">FAQ</a></li>
+                <li><a href="../html files/contact-us.html">Contact Us</a></li>
+                <li><a href="../html files/about-us.html">About Us</a></li>
+                <li><a href="../html files/reviews.html">Reviews</a></li>
+                <li><a href="../html files/partners.html">Partnerships</a></li>
+                <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+                <li><a href="data-protection.html">Data protection</a></li>
+                <li><a href="terms.html">Terms and Conditions</a></li>
+            </ul>
+        </div>
+
+        <!-- Brands Listing -->
+        <div class="footer-section brands-list">
+            <h4>Browse by Brand</h4>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: Devsquad@surgemotors.com</p>
+            <p>Phone:+961 70 777 676 </p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Partners</title>
+    <link rel="stylesheet" href="../css files/partners.css">
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg" class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg" class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg" class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg" class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg" class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html"  class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart"> 
+                </a>
+                
+                
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                <li><a href="viewAll.html" >ALL Vehicles</a></li>
+                <li><a href="sell-car.html">Sell Your Car</a></li>
+                <li><a href="bookmark.html">Bookmark</a></li>
+                
+            </ul>
+        </div>
+        
+
+    </nav>
+
+<div id="partners-section">
+    <h2 class="partners-heading">Our Partners</h2>
+    
+    <div class="partner-card">
+        <a href="https://www.bankaudi.com.lb" target="_blank">
+            <img src="https://www.hazmieh.com/wp-content/uploads/cache/images/Bank-Audi/Bank-Audi-3818516749.png" alt="Bank Audi">
+        </a>
+        <h3 class="partner-name">Bank Audi</h3>
+        <p class="partner-description">Our long-standing banking partner, ensuring secure and reliable financial solutions.</p>
+    </div>
+
+    <div class="partner-card">
+        <a href="https://www.omt.com.lb" target="_blank">
+            <img src="https://www.lstatic.org/UserFiles/images/Lebanon/Diverts/Large/OMT-Logo.jpg" alt="OMT">
+        </a>
+        <h3 class="partner-name">OMT</h3>
+        <p class="partner-description">A trusted financial service provider, facilitating seamless money transfers worldwide.</p>
+    </div>
+
+    <div class="partner-card">
+        <a href="https://www.visa.com" target="_blank">
+            <img src="https://logos-world.net/wp-content/uploads/2020/04/Visa-Logo-2014-present.jpg" alt="Visa">
+        </a>
+        <h3 class="partner-name">Visa</h3>
+        <p class="partner-description">Empowering our customers with global payment solutions for a hassle-free experience.</p>
+    </div>
+
+    <div class="partner-card">
+        <a href="https://www.paypal.com" target="_blank">
+            <img src="http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2014/04/Screen-Shot-2014-04-30-at-18.18.55.png" alt="PayPal">
+        </a>
+        <h3 class="partner-name">PayPal</h3>
+        <p class="partner-description">A globally recognized online payment platform that enhances digital transactions.</p>
+    </div>
+
+    <div class="partner-card">
+        <a href="https://www.bundesregierung.de" target="_blank">
+            <img src="https://p.kindpng.com/picc/s/372-3722732_german-government-logo-hd-png-download.png" alt="German Government">
+        </a>
+        <h3 class="partner-name">German Government</h3>
+        <p class="partner-description">Supporting international economic growth and fostering strong diplomatic relations.</p>
+    </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-container">
+      <!-- Quick Links -->
+      <div class="footer-section quick-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+            <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+            <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+            <li><a href="../html files/bookmark.html">Bookmark</a></li>
+            <li><a href="../html files/faq.html">FAQ</a></li>
+            <li><a href="../html files/contact-us.html">Contact Us</a></li>
+            <li><a href="../html files/about-us.html">About Us</a></li>
+            <li><a href="../html files/reviews.html">Reviews</a></li>
+            <li><a href="../html files/partners.html">Partnerships</a></li>
+            <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+            <li><a href="data-protection.html">Data protection</a></li>
+            <li><a href="terms.html">Terms and Conditions</a></li>
+          </ul>
+      </div>
+      
+      <!-- Brands Listing -->
+      <div class="footer-section brands-list">
+          <h4>Browse by Brand</h4>
+          <ul>
+            <li><a href="viewAll.html?make=audi">Audi</a></li>
+            <li><a href="viewAll.html?make=bmw">BMW</a></li>
+            <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+            <li><a href="viewAll.html?make=ford">Ford</a></li>
+            <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+            <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+          </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section contact-info">
+          <h4>Contact Us</h4>
+          <p>Email: Devsquad@surgemotors.com</p>
+          <p>Phone:+961 70 777 676 </p>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section social-media">
+          <h4>Follow Us</h4>
+          <ul>
+              <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+              <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+              <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+              <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+          </ul>
+      </div>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+      <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="partners.js"></script>
+</body>
+</html>

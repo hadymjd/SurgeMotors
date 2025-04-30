@@ -1,0 +1,552 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #000000, grey);
+    color: #fff;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* Card Styles */
+  .car-card {
+    background: white;
+    border-radius: 10px;
+    margin: 15px;
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color:black;
+  }
+  
+  .car-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .car-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .car-card h3 {
+    font-size: 1.5rem;
+    margin: 15px;
+    text-align: center;
+  }
+  
+  .car-card p {
+    font-size: 1rem;
+    margin: 0 15px 15px;
+    text-align: center;
+    color: #ccc;
+  }
+  
+  .car-card button {
+    display: block;
+    width: 80%;
+    margin: 0 auto 15px;
+    padding: 10px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .car-card button:hover {
+    background: #c0392b;
+  }
+  
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background: linear-gradient(to right, black, grey);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .modal-content h2 {
+    font-size: 2rem;
+    margin: 15px 0;
+  }
+  
+  .modal-content p {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .car-card {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+
+
+  /* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: black;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo img {
+    height: 50px;
+}
+
+/* Navigation Links Container */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: 30px;
+}
+
+/* Navigation Links */
+.nav-links li {
+    position: relative;
+    padding: 10px 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(228, 213, 213);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Initially hide the arrow for dropdown */
+.dropdown > a::after {
+    content: "▲";
+    font-size: 8px;
+    color: white;
+    margin-left: 5px;
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(0deg);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Show and rotate the arrow on hover */
+.dropdown:hover > a::after {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    top: 100%;
+    left: 0;
+    min-width: 150px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown-menu li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.dropdown-menu li a {
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Brand Logos */
+.brand-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Cart Icon */
+.Book-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Icons Section */
+.icons {
+    display: flex;
+    gap: 40px;
+}
+
+/* Wishlist Icon */
+.wishlist-icon {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.wishlist-icon:hover {
+    color: silver;
+}
+
+/* Profile Image */
+.icon-img {
+    width: 25px;
+    height: 25px;
+    filter: grayscale(100%) brightness(90%);
+    transition: filter 0.3s ease;
+}
+
+.icon-img:hover {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Navbar Items Hover Effects */
+.nav-links li, .icons a {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 8px 12px;
+    transition: border 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.nav-links li:hover, .icons a:hover {
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Dropdown Items Hover */
+.dropdown-menu li:hover {
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* bookmark and Profile Icons */
+.Book-icon, .icon-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 5px;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.Book-icon:hover, .icon-img:hover {
+    border: 2px solid white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown for Cart */
+.Book-dropdown:hover .cart-dropdown-menu {
+    display: block;
+}
+
+/* Cart Dropdown Menu */
+.Book-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 180px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Each item in the cart dropdown */
+.Book-dropdown-menu li {
+    padding: 8px 15px;
+    white-space: nowrap;
+    border-bottom: 1px solid #ddd;
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* Total amount in the cart */
+.Book-dropdown-menu li strong {
+    font-size: 16px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* Hover Effects for Cart Dropdown */
+.Book-dropdown-menu li:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Cart Buttons Styling */
+.Book-dropdown-menu li a {
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 15px;
+    width: 100%;
+    text-decoration: none;
+}
+
+/* Hover Effects for Cart Buttons */
+.Book-dropdown-menu li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Brand Dropdown Menu Items */
+.brand-dropdown-item {
+    padding: 8px 15px;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Hover and Click Effects for Brand Dropdown Items */
+.brand-dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+
+
+/* Profile Dropdown Styles */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown .icon {
+    display: flex;
+    align-items: center;
+}
+
+.profile-dropdown .icon-img {
+    width: 40px; /* Fixed to the original size */
+    height: 40px;
+    border-radius: 50%;
+    filter: grayscale(100%) brightness(90%);
+    transition: filter 0.3s ease;
+}
+
+.profile-dropdown .icon-img:hover {
+    filter: grayscale(0%) brightness(100%);
+}
+
+/* Profile Dropdown Menu */
+.profile-dropdown-menu {
+    display: none;
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 220px;
+    background-color: black;
+    color: silver;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Profile Dropdown Header Styling */
+.profile-header {
+    padding-bottom: 15px;
+    font-size: 16px; /* Smaller font size */
+    color: silver;
+    font-weight: bold;
+}
+
+.quote {
+    display: block;
+    font-style: italic;
+    color: rgb(241, 241, 241); /* Red for emphasis */
+    margin-top: 5px;
+}
+
+/* Button Styles */
+.btn {
+    padding: 6px 12px;
+    margin: 8px 5px;
+    text-align: center;
+    background-color: silver;
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px; /* Smaller font size */
+}
+
+.btn:hover {
+    background-color: red;
+    color: white;
+}
+
+/* Display the profile dropdown on hover */
+.profile-dropdown:hover .profile-dropdown-menu {
+    display: block;
+}
+
+/* Hover effect for dropdown items */
+.profile-dropdown-menu li:hover {
+    background-color: rgba(62, 62, 62, 0.1); /* Subtle red hover effect */
+}
+
+/* Navbar item hover effect for Profile */
+.icons a:hover, .profile-dropdown:hover .icon-img {
+    background: rgba(244, 2, 2, 0.1);
+    border-radius: 50%;
+}
+
+.footer {
+    background-color: #111; /* Black background */
+    color: #fff; /* White text */
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 0 20px;
+    min-width: 250px;
+}
+
+.footer-section h4 {
+    font-size: 1.2em; /* Reduced font size */
+    margin-bottom: 12px; /* Adjusted margin */
+    color: #fff;
+    border-bottom: 2px solid #000000; /* Red underline */
+    padding-bottom: 8px; /* Adjusted padding */
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px; /* Reduced margin */
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.9em; /* Slightly smaller font size */
+}
+
+.footer-section a:hover {
+    color: #d12f2f; /* Red hover color */
+}
+
+.footer-bottom {
+    background-color: #222;
+    text-align: center;
+    padding: 18px;
+    font-size: 0.8em; /* Slightly smaller font size */
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #fff;
+}
+
+.footer-section ul li a {
+    font-size: 0.9em; /* Slightly smaller font size */
+    font-weight: 400;
+}
+
+.footer-section.social-media ul {
+    display: flex;
+    flex-direction: column; /* Social media links stacked vertically */
+    gap: 10px;
+}
+
+.footer-section.social-media ul li a {
+    font-size: 1.1em; /* Reduced font size */
+}
+
+.footer-section.social-media ul li a:hover {
+    color: #d12f2f; /* Red hover color */
+}

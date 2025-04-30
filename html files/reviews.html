@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews - Your Car Dealership</title>
+    <link rel="stylesheet" href="../css files/reviews.css"> <!-- Link to external CSS -->
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg"
+                                class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg"
+                                class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img
+                                src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg"
+                                class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg"
+                                class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg"
+                                class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html" class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="../html files/sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="../html files/Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart">
+                </a>
+
+
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="../html files/signup.html">Create Account</a></li>
+                <li><a href="../html files/sign_in.html">Login</a></li>
+                <li><a href="../html files/audi.html">Audi</a></li>
+                <li><a href="../html files/bmw.html">BMW</a></li>
+                <li><a href="../html files/mercedes.html">Mercedes</a></li>
+                <li><a href="../html files/ford.html">Ford</a></li>
+                <li><a href="../html files/tesla.html">Tesla</a></li>
+                <li><a href="../html files/porsche.html">Porsche</a></li>
+                <li><a href="../html files/viewAll.html">ALL Vehicles</a></li>
+                <li><a href="../html files/sell-car.html">Sell Your Car</a></li>
+                <li><a href="../html files/bookmark.html">Bookmark</a></li>
+
+            </ul>
+        </div>
+
+
+    </nav>
+    <section>
+        <h1>Customer Reviews</h1>
+        <div class="container">
+            <!-- Review Form -->
+            <div class="review-form">
+                <h2>Leave a Review</h2>
+                <form id="reviewForm" action="../php files/submit_review.php" method="POST">
+                    <input type="text" id="reviewName" placeholder="Your Name" required>
+                    <textarea id="reviewText" placeholder="Your Review" required></textarea>
+                    <div class="star-rating">
+                        <span class="star" data-value="1">★</span>
+                        <span class="star" data-value="2">★</span>
+                        <span class="star" data-value="3">★</span>
+                        <span class="star" data-value="4">★</span>
+                        <span class="star" data-value="5">★</span>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Reviews Container -->
+            <div id="reviewsContainer" class="reviews-container">
+                <!-- Reviews will be dynamically added here -->
+            </div>
+        </div>
+        <script src="../js files/reviews.js"></script> <!-- Link to external JavaScript -->
+    </section>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="footer-section quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+                    <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+                    <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+                    <li><a href="../html files/bookmark.html">Bookmark</a></li>
+                    <li><a href="../html files/faq.html">FAQ</a></li>
+                    <li><a href="../html files/contact-us.html">Contact Us</a></li>
+                    <li><a href="../html files/about-us.html">About Us</a></li>
+                    <li><a href="../html files/reviews.html">Reviews</a></li>
+                    <li><a href="../html files/partners.html">Partnerships</a></li>
+                    <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+                    <li><a href="data-protection.html">Data protection</a></li>
+                    <li><a href="terms.html">Terms and Conditions</a></li>
+                </ul>
+            </div>
+
+            <!-- Brands Listing -->
+            <div class="footer-section brands-list">
+                <h4>Browse by Brand</h4>
+                <ul>
+                    <li><a href="viewAll.html?make=audi">Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford">Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-section contact-info">
+                <h4>Contact Us</h4>
+                <p>Email: Devsquad@surgemotors.com</p>
+                <p>Phone:+961 70 777 676 </p>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section social-media">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                    <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                    <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</html>

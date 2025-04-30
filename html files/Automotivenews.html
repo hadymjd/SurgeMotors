@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automotive News</title>
+    <link rel="stylesheet" href="../css files/Automotivenews.css">
+    <link rel="shorcut icon" href="../images/MainLogo.jpg">
+    <script>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script> 
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="home.html">
+                <img src="../images/MainLogo.jpg" height="40" alt="Surge Motors Logo">
+            </a>
+        </div>
+        
+        <ul class="nav-links">
+            <li class="dropdown">
+                <a href="#">Brands</a>
+                <ul class="dropdown-menu">
+                    <li><a href="viewAll.html?make=audi" class="brand-dropdown-item"><img src="../images/audi.jpg" class="brand-logo"> Audi</a></li>
+                    <li><a href="viewAll.html?make=bmw" class="brand-dropdown-item"><img src="../images/bmw.jpg" class="brand-logo"> BMW</a></li>
+                    <li><a href="viewAll.html?make=mercedes" class="brand-dropdown-item"><img src="../images/mercedes.jpg" class="brand-logo"> Mercedes</a></li>
+                    <li><a href="viewAll.html?make=ford" class="brand-dropdown-item"><img src="../images/ford.jpg" class="brand-logo"> Ford</a></li>
+                    <li><a href="viewAll.html?make=tesla" class="brand-dropdown-item"><img src="../images/tesla.jpg" class="brand-logo"> Tesla</a></li>
+                    <li><a href="viewAll.html?make=porsche" class="brand-dropdown-item"><img src="../images/porshce.jpg" class="brand-logo"> Porsche</a></li>
+                    <li><a href="viewAll.html"  class="brand-dropdown-item">View All</a></li>
+                </ul>
+            </li>
+            <li><a href="sell-car.html">Sell Your Car</a></li>
+            <li class="dropdown Book-dropdown">
+                <a href="Bookmark.html" class="nav-item">
+                    Bookmark
+                    <img src="../images/Bookmark.jpg" class="Book-icon" alt="Cart"> 
+                </a>
+                
+                
+            </li>
+        </ul>
+        <div class="icons">
+            <!-- Profile dropdown -->
+            <div class="profile-dropdown">
+                <a href="#" class="icon">
+                    <img src="../images/avatar-line-icon.jpg" class="icon-img" alt="User Profile">
+                </a>
+                <ul class="profile-dropdown-menu">
+                    <li class="profile-header">
+                        <p>Welcome to SurgeMotors! <span class="quote">"Drive the Future!"</span></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+        <div class="mobile-menu">
+            <div class="menu-header">
+                <img src="../images/MainLogo.jpg" alt="Logo" class="menu-logo">
+                <span class="menu-slogan">Drive Your Dreams, Own the Road!</span>
+            </div>
+            <span class="close-menu" onclick="toggleMenu()">×</span>
+            <ul>
+                <li><a href="signup.html">Create Account</a></li>
+                <li><a href="sign_in.html">Login</a></li>
+                <li><a href="audi.html">Audi</a></li>
+                <li><a href="bmw.html">BMW</a></li>
+                <li><a href="mercedes.html">Mercedes</a></li>
+                <li><a href="ford.html">Ford</a></li>
+                <li><a href="tesla.html">Tesla</a></li>
+                <li><a href="porsche.html">Porsche</a></li>
+                <li><a href="viewAll.html" >ALL Vehicles</a></li>
+                <li><a href="sell-car.html">Sell Your Car</a></li>
+                <li><a href="bookmark.html">Bookmark</a></li>
+                
+            </ul>
+        </div>
+        
+
+    </nav>
+    <!-- Main Content -->
+    <main class="news-container">
+
+        <section class="news-header">
+            <h1>Latest Automotive News</h1>
+            <p>Stay updated with the latest news from top automotive brands including Mercedes, BMW, Audi, Tesla, Ford, and Porsche.</p>
+        </section>
+
+        <!-- Mercedes News Section -->
+        <section class="brand-news">
+            <h2>Mercedes-Benz</h2>
+            <div class="news-item">
+                <img src="../images/electric car mercedes.jpg" alt="Mercedes-Benz Latest Model">
+                <div class="news-text">
+                    <h3>Mercedes-Benz Unveils New Electric Sedan</h3>
+                    <p>Mercedes-Benz has just released its latest electric sedan, revolutionizing the future of sustainable driving. The new model features cutting-edge technology and sleek design.</p>
+                    <a href="https://www.mercedes-benz.com/news" target="_blank">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BMW News Section -->
+        <section class="brand-news">
+            <h2>BMW</h2>
+            <div class="news-item">
+                <img src="../images/Bmw 3 cars news.jpg" alt="BMW New Arrival">
+                <div class="news-text">
+                    <h3>BMW Announces New M Series Performance Models</h3>
+                    <p>BMW introduces the new M Series performance cars with enhanced powertrains, optimized aerodynamics, and updated interior technology.</p>
+                    <a href="https://www.bmw.com/news" target="_blank">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audi News Section -->
+        <section class="brand-news">
+            <h2>Audi</h2>
+            <div class="news-item">
+                <img src="../images/Audi hybrid.jpg" alt="Audi Latest News">
+                <div class="news-text">
+                    <h3>Audi Launches New Hybrid Model</h3>
+                    <p>Audi has introduced a new hybrid model combining eco-friendly driving with Audi's performance standards, pushing the brand further into the green vehicle market.</p>
+                    <a href="https://www.audi.com/news" target="_blank">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tesla News Section -->
+        <section class="brand-news">
+            <h2>Tesla</h2>
+            <div class="news-item">
+                <img src="../images/Cybertruck tesla .jpg" alt="Tesla New Innovation">
+                <div class="news-text">
+                    <h3>Tesla to Introduce Full Self-Driving Update</h3>
+                    <p>Tesla's upcoming software update will bring full self-driving features to a wider range of models, with enhanced safety and autonomous capabilities.</p>
+                    <a href="https://www.tesla.com/news" target="_blank">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ford News Section -->
+        <section class="brand-news">
+            <h2>Ford</h2>
+            <div class="news-item">
+                <img src="../images/Ford-electric.jpg" alt="Ford New Release">
+                <div class="news-text">
+                    <h3>Ford Announces New Electric Pickup Truck</h3>
+                    <p>Ford is stepping up its electric vehicle game with the launch of its new electric pickup truck, designed to offer power, range, and utility.</p>
+                    <a href="https://www.ford.com/news" target="_blank">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Porsche News Section -->
+        <section class="brand-news">
+            <h2>Porsche</h2>
+            <div class="news-item">
+                <img src="../images/Porcsche elec.jpg" alt="Porsche Latest Release">
+                <div class="news-text">
+                    <h3>Porsche Reveals New Electric Sports Car</h3>
+                    <p>Porsche's latest electric sports car has stunned car enthusiasts with its high performance, cutting-edge design, and sustainable engineering.</p>
+                    <a href="https://www.porsche.com/news" target="_blank">Read More</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script defer>
+        function toggleMenu() {
+            document.querySelector('.mobile-menu').classList.toggle('active');
+        }
+    </script>
+    
+</body>
+
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Quick Links -->
+        <div class="footer-section quick-links">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="../html files/viewAll.html">Explore All Cars</a></li>
+                <li><a href="../html files/book-test-drive.html">Book a Test Drive</a></li>
+                <li><a href="../html files/Automotivenews.html">Automotive News</a></li>
+                <li><a href="../html files/bookmark.html">Bookmark</a></li>
+                <li><a href="../html files/faq.html">FAQ</a></li>
+                <li><a href="../html files/contact-us.html">Contact Us</a></li>
+                <li><a href="../html files/about-us.html">About Us</a></li>
+                <li><a href="../html files/reviews.html">Reviews</a></li>
+                <li><a href="../html files/partners.html">Partnerships</a></li>
+                <li><a href="cookiePolicy.html">Cookies Policy</a></li>
+                <li><a href="data-protection.html">Data protection</a></li>
+                <li><a href="terms.html">Terms and Conditions</a></li>
+
+            </ul>
+        </div>
+        
+        <!-- Brands Listing -->
+        <div class="footer-section brands-list">
+            <h4>Browse by Brand</h4>
+            <ul>
+                <li><a href="viewAll.html?make=audi">Audi</a></li>
+                <li><a href="viewAll.html?make=bmw">BMW</a></li>
+                <li><a href="viewAll.html?make=mercedes">Mercedes</a></li>
+                <li><a href="viewAll.html?make=ford">Ford</a></li>
+                <li><a href="viewAll.html?make=tesla">Tesla</a></li>
+                <li><a href="viewAll.html?make=porsche">Porsche</a></li>
+                
+            </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: Devsquad@surgemotors.com</p>
+            <p>Phone:+961 70 777 676 </p>
+        </div>
+
+        <!-- Social Media -->
+        <div class="footer-section social-media">
+            <h4>Follow Us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
+                <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+        <p>&copy; 2025 Surge Motors. All Rights Reserved.</p>
+    </div>
+</footer>
+</html>
