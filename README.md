@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # SurgeMotors
 
 [Project Banner](images/MainLogo.jpg)
@@ -73,5 +73,4 @@ This project is not licensed and is intended solely for educational purposes.
 For questions or feedback, feel free to reach out:
 - Email: [Devsquad@surgemotors.com] 
 =======
-# SurgeMotors
->>>>>>> e23143a14372527184b12d27bd935d691728f0f2
+
